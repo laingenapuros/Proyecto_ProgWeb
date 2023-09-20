@@ -12,7 +12,10 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        $cliente = cliente::all();
+        //dd($clientes);
+        return view('cliente/indexCliente', compact('cliente'));
+
     }
 
     /**
@@ -20,7 +23,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('cliente/creatCliente');
     }
 
     /**
@@ -28,7 +31,16 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente = new cliente();
+
+        $cliente -> nombre = $request -> nombre;
+        $cliente -> cantidad = $request -> cantidad;
+        $cliente -> telefono = $request -> telefono;
+        $cliente -> catidad_men = $request -> cantidad_men;
+
+        $cliente -> save();
+
+        return redirect('/Cliente');
     }
 
     /**
