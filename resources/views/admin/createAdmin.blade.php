@@ -14,7 +14,7 @@
     <body >
     	<section>
     		<div class="formulario">
-    		<h1 class="formulariotitulo"> Agregar Admin </h1>
+    		<h1 class="formulariotitulo"> Agregar Admins </h1>
     		<form action="/Admin" method="post">
                 @csrf
 			  
