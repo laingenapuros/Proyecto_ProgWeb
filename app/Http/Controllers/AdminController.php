@@ -12,22 +12,38 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin/indexAdmin');
+        $admin = admin::all();
+        //dd($admin);
+        return view('admin/indexAdmin', compact('admin'));
+        // -> with(['admins']);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create() //ContactoSave
     {
+
+        
         return view('admin/createadmin');
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) //ContactoSave
     {
+
+        $admin = new admin(); //modelo clase que representa tabla  crea instancia de esa clase 
+        
+        $admin -> nombre  = $request -> nombre;//acceso a los atributos de la tabla
+        $admin -> correo = $request -> correo;
+        $admin -> password = $request -> password;
+        $admin ->save();
+
+        return redirect('/Admin');
+
         //
     }
 
