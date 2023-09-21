@@ -23,7 +23,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('cliente/creatCliente');
+        return view('cliente/createCliente');
     }
 
     /**
@@ -36,7 +36,7 @@ class ClienteController extends Controller
         $cliente -> nombre = $request -> nombre;
         $cliente -> cantidad = $request -> cantidad;
         $cliente -> telefono = $request -> telefono;
-        $cliente -> catidad_men = $request -> cantidad_men;
+        $cliente -> producto_men = $request -> producto_men;
 
         $cliente -> save();
 

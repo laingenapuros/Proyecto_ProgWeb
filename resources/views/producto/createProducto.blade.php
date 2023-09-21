@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Cliente</title>
+		<title>Producto</title>
 	</head>
 	<body>  
         <main>
-            <h1>Formulario Cliente</h1>
-            <form action="/Cliente" method="POST">
+            <h1>Formulario Producto</h1>
+            <form action="/Producto" method="POST">
                 @csrf
                 <label>Nombre</label><br>
                 <input type="text" name="nombre" placeholder="Nombre"><br>
@@ -16,11 +16,8 @@
                 <label>Cantidad</label><br>
                 <input type="text" name="cantidad" placeholder="Cantidad"><br>
 
-                <label>Telefono</label><br>
-                <input type="text" name="telefono" placeholder="Telefono"><br>
-
-                <label>Producto Menudeo</label><br>
-                <input type="text" name="producto_men" placeholder="Producto"><br>
+                <label>Precio</label><br>
+                <input type="text" name="precio" placeholder="Precio"><br>
                 
                 <br><br><button type="submit" value="enviar">Enviar</button>
             </form>

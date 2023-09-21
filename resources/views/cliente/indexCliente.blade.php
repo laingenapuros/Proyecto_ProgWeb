@@ -7,17 +7,16 @@
 </head>
 <body>
     <h1>IndexCliente</h1>
+    <ul>
 
+        @foreach ($cliente as $cliente)
 
-   @foreach ($cliente as $cliente)
+            <li>{{$cliente -> nombre}}</li>
+            <li>{{$cliente -> cantidad}}</li>
+            <li>{{$cliente -> telefono}}</li>
+            <li>{{$cliente -> producto_men}}</li>
 
-        <li>{{$cliente->nombre}}</li>
-        <li>{{$cantidad->cantidad}}</li>
-        <li>{{$telefono->telefono}}</li>
-        <li>{{$producto_men->producto_men}}</li>
-
-
-   @endforeach
-    
+        @endforeach
+    </ul>
 </body>
 </html>

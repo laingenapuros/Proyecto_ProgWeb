@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> HOLA  AYUDA</h1>
-    
+    <h1> HOLA  ADMIN</h1>
+    <ul>
+        
+    @foreach ($admin as $admin)
+    <li> {{$admin ->nombre}} </li> 
+    <li> {{$admin ->correo}} </li>
+    <li> {{$admin ->password}} </li>
+    @endforeach
+</ul>
 </body>
 </html>
