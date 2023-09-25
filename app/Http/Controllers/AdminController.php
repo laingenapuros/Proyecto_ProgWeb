@@ -53,6 +53,7 @@ class AdminController extends Controller
     public function show(Admin $admin)
     {
         //
+        return view('admin.showAdmin', compact('admin'));
     }
 
     /**
@@ -61,6 +62,7 @@ class AdminController extends Controller
     public function edit(Admin $admin)
     {
         //
+        return view('admin.editAmin', compact('admin'));
     }
 
     /**

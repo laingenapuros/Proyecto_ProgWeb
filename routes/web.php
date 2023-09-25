@@ -25,6 +25,8 @@ Route::get('/', function () {
 
 Route::resource('Proveedor', ProveedorController::class); //agregar controladores 
 Route::resource('Empleado', EmpleadoController::class); //agregar controladores 
-Route::resource('Admin', AdminController::class); //agregar controladores 
+Route::resource('admin', AdminController::class); //agregar controladores 
 Route::resource('Producto', ProductoController::class); //agregar controladores 
-Route::resource('Cliente', ClienteController::class); //agregar controladores 
+Route::resource('cliente', ClienteController::class); //agregar controladores 
+
+//Route::get('Cliente/pdf', [ClienteController::class, 'pdf'])->name('norma.pdf'); //ruta con ese metodo

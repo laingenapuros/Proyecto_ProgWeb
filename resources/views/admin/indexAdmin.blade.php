@@ -10,9 +10,12 @@
     <ul>
         
     @foreach ($admin as $admin)
-    <li> {{$admin ->nombre}} </li> 
+    <a href="{{route('admin.show', $admin)}}">
+        {{$admin -> nombre}}
+    </a><br>
+    <!--<li> {{$admin ->nombre}} </li> 
     <li> {{$admin ->correo}} </li>
-    <li> {{$admin ->password}} </li>
+    <li> {{$admin ->password}} </li>-->
     @endforeach
 </ul>
 </body>

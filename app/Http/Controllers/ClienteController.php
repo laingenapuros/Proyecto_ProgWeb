@@ -40,7 +40,7 @@ class ClienteController extends Controller
 
         $cliente -> save();
 
-        return redirect('/Cliente');
+        return redirect('/cliente');
     }
 
     /**
@@ -48,7 +48,8 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        //
+        //dd($cliente);
+        return view('cliente.showCliente', compact('cliente'));
     }
 
     /**
@@ -57,6 +58,7 @@ class ClienteController extends Controller
     public function edit(Cliente $cliente)
     {
         //
+        return view('cliente.editCliente', compact('cliente'));
     }
 
     /**
