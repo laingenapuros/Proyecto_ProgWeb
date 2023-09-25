@@ -34,10 +34,6 @@
 
 
     </body>
-    <footer>
-		 <p class="pie" >  &nbsp  &nbsp © Agradecimientos. &nbsp  &nbsp Universidad de Guadalajara 2023 &nbsp  &nbsp &nbsp  &nbsp &nbsp <a href="formulario.html" href="Aviso"> 
-		 	Contactame en..</a>  &nbsp  &nbsp <img src="IMG/mail.png" width="10" height="10" alt="ProyectoJava" class="saas">  andrea.torres8087@alumnos.udg.mx  </a> </p>
-	</footer>
 </html>
 
     
