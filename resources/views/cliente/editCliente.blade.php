@@ -8,7 +8,10 @@
 <body>
     <h1>Edit Cliente</h1>
 
-    <h2>Nombre Cliente: {{ $cliente->nombre }}</h2>
+    <h3>Nombre Cliente: {{ $cliente->nombre }}</h3>
+    <h3>Cantidad: {{ $cliente->cantidad }}</h3>
+    <h3>Telefono: {{ $cliente->telefono }}</h3>
+    <h3>Producto Menudeo: {{ $cliente->producto_men }}</h3>
     
 </body>
 </html>

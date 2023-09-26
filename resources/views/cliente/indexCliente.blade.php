@@ -10,18 +10,44 @@
     <ul>
 
         @foreach ($cliente as $cliente)
-            <li>
+            <li>Nombre: 
                 <a href="{{route('cliente.show', $cliente)}}">
                     {{$cliente -> nombre}}
+                </a>
+            </li>
+            <!--<li>Cantidad: 
+                <a href="{{route('cliente.show', $cliente)}}">
+                    {{$cliente -> cantidad}}
                 </a>
                 <a href="{{route('cliente.edit', $cliente)}}">
                     Editar
                 </a>
             </li>
-            <!--<li>{{$cliente -> nombre}}</li>-->
-            <li>{{$cliente -> cantidad}}</li>
-            <li>{{$cliente -> telefono}}</li>
-            <li>{{$cliente -> producto_men}}</li>
+            <li>Telefono: 
+                <a href="{{route('cliente.show', $cliente)}}">
+                    {{$cliente -> telefono}}
+                </a>
+                <a href="{{route('cliente.edit', $cliente)}}">
+                    Editar
+                </a>
+            </li>
+            <li>Producto Menudeo: 
+                <a href="{{route('cliente.show', $cliente)}}">
+                    {{$cliente -> producto_men}}
+                </a>
+                <a href="{{route('cliente.edit', $cliente)}}">
+                    Editar
+                </a>
+            </li>
+            <li>{{$cliente -> nombre}}</li>
+            <li>Cantidad: {{$cliente -> cantidad}}</li>
+            <li>Telefono: {{$cliente -> telefono}}</li>
+            <li>Producto Menudeo: {{$cliente -> producto_men}}</li>-->
+            
+            <li><a href="{{route('cliente.edit', $cliente)}}">
+                    Editar
+                </a>
+            </li>
         @endforeach
     </ul>
 </body>

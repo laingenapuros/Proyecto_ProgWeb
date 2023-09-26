@@ -11,15 +11,37 @@
 
         @foreach ($producto as $producto)
 
-            <a href="{{route('producto.show', $producto)}}">
-                {{$producto -> nombre}}
-            </a>
-            <a href="{{route('producto.edit', $producto)}}">
-                  Editar
-            </a>
-            <!--<li>{{$producto -> nombre}}</li>-->
-            <li>{{$producto -> cantidad}}</li>
-            <li>{{$producto -> precio}}</li>
+            <li>Nombre: 
+                <a href="{{route('producto.show', $producto)}}">
+                    {{$producto -> nombre}}
+                </a>
+            </li>
+            <!--<li>Cantidad: 
+                <a href="{{route('producto.show', $producto)}}">
+                {{$producto -> cantidad}}
+                </a>
+                <a href="{{route('producto.edit', $producto)}}">
+                    Editar
+                </a>
+            </li>
+            <li>Precio: $
+                <a href="{{route('producto.show', $producto)}}">
+                    {{$producto -> precio}}
+                </a>
+                <a href="{{route('producto.edit', $producto)}}">
+                    Editar
+                </a>
+            </li>
+            <li>{{$producto -> nombre}}</li>
+            <li>Cantidad: {{$producto -> cantidad}}</li>
+            <li>Precio: {{$producto -> precio}}</li>-->
+            <li>
+                <a href="{{route('producto.edit', $producto)}}">
+                    Editar
+                </a>
+            </li>
+
+            <p>--------------------------------</p>
 
         @endforeach
     </ul>
