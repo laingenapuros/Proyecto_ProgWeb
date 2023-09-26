@@ -8,7 +8,7 @@
 	<body>  
         <main>
             <h1>Formulario Producto</h1>
-            <form action="/Producto" method="POST">
+            <form action="/producto" method="POST">
                 @csrf
                 <label>Nombre</label><br>
                 <input type="text" name="nombre" placeholder="Nombre"><br>

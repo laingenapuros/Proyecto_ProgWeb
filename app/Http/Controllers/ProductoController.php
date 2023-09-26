@@ -39,7 +39,7 @@ class ProductoController extends Controller
 
         $producto -> save();
 
-        return redirect('/Producto');
+        return redirect('/producto');
     }
 
     /**
@@ -48,6 +48,8 @@ class ProductoController extends Controller
     public function show(Producto $producto)
     {
         //
+        
+        return view('producto.showProducto', compact('producto'));
     }
 
     /**
@@ -56,6 +58,7 @@ class ProductoController extends Controller
     public function edit(Producto $producto)
     {
         //
+        return view('producto.editProducto', compact('producto'));
     }
 
     /**

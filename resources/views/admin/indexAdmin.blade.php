@@ -12,7 +12,11 @@
     @foreach ($admin as $admin)
     <a href="{{route('admin.show', $admin)}}">
         {{$admin -> nombre}}
-    </a><br>
+    </a>
+    <a href="{{route('admin.edit', $admin)}}">
+          Editar
+    </a>
+
     <!--<li> {{$admin ->nombre}} </li> 
     <li> {{$admin ->correo}} </li>
     <li> {{$admin ->password}} </li>-->

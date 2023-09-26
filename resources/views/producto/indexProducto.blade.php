@@ -11,7 +11,13 @@
 
         @foreach ($producto as $producto)
 
-            <li>{{$producto -> nombre}}</li>
+            <a href="{{route('producto.show', $producto)}}">
+                {{$producto -> nombre}}
+            </a>
+            <a href="{{route('producto.edit', $producto)}}">
+                  Editar
+            </a>
+            <!--<li>{{$producto -> nombre}}</li>-->
             <li>{{$producto -> cantidad}}</li>
             <li>{{$producto -> precio}}</li>
 
