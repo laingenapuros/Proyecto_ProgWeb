@@ -11,31 +11,22 @@
 	
 		<title> Formulario </title>
 	</head>
-    <body >
-    	<section>
-    		<div class="formulario">
-    		<h1 class="formulariotitulo"> Agregar Admins </h1>
-    		<form action="/Admin" method="post">
-                @csrf
-			  
-			      <label for="name">Nombre:</label>
-			      <input type="text" id="name" name="nombre" />
-			    
-			      <label for="mail">Correo electrónico:</label>
-			      <input type="email" id="correo" name="correo" />
-	
-			      <label for="password">Pasword:</label>
-			      <input type="password" id="password"  name="password"/>
-			    <input class="boton" type="submit" value="Enviar" />
+    <bodyd>	
+        <h1> Agregar Admins </h1>
+        <form action="/admin" method="post">
+            @csrf
+            
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="nombre" />
+        
+            <label for="mail">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" />
 
-			</form>
-</div>
-    	</section>
+            <label for="password">Pasword:</label>
+            <input type="password" id="password"  name="password"/>
+            
+            <input class="boton" type="submit" value="Enviar" />
 
-
-    </body>
-</html>
-
-    
-</body>
+        </form>
+    </bodyd>
 </html>

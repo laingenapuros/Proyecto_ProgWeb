@@ -25,7 +25,7 @@ class AdminController extends Controller
     {
 
         
-        return view('admin/createadmin');
+        return view('admin/createAdmin');
 
     }
 
@@ -42,7 +42,7 @@ class AdminController extends Controller
         $admin -> password = $request -> password;
         $admin ->save();
 
-        return redirect('/Admin');
+        return redirect('/admin');
 
         //
     }
@@ -53,6 +53,7 @@ class AdminController extends Controller
     public function show(Admin $admin)
     {
         //
+        return view('admin.showAdmin', compact('admin'));
     }
 
     /**
@@ -61,6 +62,7 @@ class AdminController extends Controller
     public function edit(Admin $admin)
     {
         //
+        return view('admin.editarAdmin', compact('admin'));
     }
 
     /**
@@ -69,6 +71,11 @@ class AdminController extends Controller
     public function update(Request $request, Admin $admin)
     {
         //
+        $admin -> nombre  = $request -> nombre;//acceso a los atributos de la tabla
+        $admin -> correo = $request -> correo;
+        $admin -> password = $request -> password;
+        $admin ->save();
+        return redirect()->route("admin.index");
     }
 
     /**
@@ -77,5 +84,7 @@ class AdminController extends Controller
     public function destroy(Admin $admin)
     {
         //
+        $admin->delete();
+        return redirect()->route('admin.index');
     }
 }
