@@ -17,10 +17,10 @@
             @csrf
             
             <label for="name">Nombre:</label>
-            <input type="text" id="name" name="nombre" />
+            <input type="text" id="name" name="nombre" value="{{old ('nombre')}}" />
         
             <label for="mail">Correo electrónico:</label>
-            <input type="email" id="correo" name="correo" />
+            <input type="email" id="correo" name="correo" value="{{old ('correo')}}"/>
 
             <label for="password">Pasword:</label>
             <input type="password" id="password"  name="password"/>
