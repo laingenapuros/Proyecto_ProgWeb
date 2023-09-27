@@ -30,7 +30,13 @@ class ProductoController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    {//validacion
+        $request->validate([                                        
+            'nombre' => 'required',
+            'cantidad' => 'required',
+            'precio' => 'required'
+        ]);
+
         $producto = new producto();
 
         $producto -> nombre = $request -> nombre;
@@ -66,7 +72,18 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+        ////validacion
+        $request->validate([                                        
+            'nombre'=>'required',
+            'cantidad'=>'required',
+            'precio'=>'required'
+        ]);
+
+        $producto-> nombre = $request->nombre;
+        $producto-> cantidad = $request->cantidad;
+        $producto-> precio = $request->precio;
+        $producto ->save();
+        return redirect()->route("producto.index");
     }
 
     /**
@@ -75,5 +92,7 @@ class ProductoController extends Controller
     public function destroy(Producto $producto)
     {
         //
+        $producto->delete();
+        return redirect()->route('producto.index');
     }
 }

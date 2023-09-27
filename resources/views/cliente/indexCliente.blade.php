@@ -11,11 +11,18 @@
 
         @foreach ($cliente as $cliente)
             <li>Nombre: 
-                <a href="{{route('cliente.show', $cliente)}}">
-                    {{$cliente -> nombre}}
-                </a>
-            </li>
-            <!--<li>Cantidad: 
+                <a href="{{route('cliente.show', $cliente)}}">{{$cliente -> nombre}}</a>
+            |
+            <a href="{{route('cliente.edit', $cliente)}}">Editar</a>
+            |
+            <form action="{{route('cliente.destroy', $cliente)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Eliminar</button>
+            </form></li>
+            <p>--------------------------------</p>
+
+             <!--<li>Cantidad: 
                 <a href="{{route('cliente.show', $cliente)}}">
                     {{$cliente -> cantidad}}
                 </a>
@@ -43,11 +50,7 @@
             <li>Cantidad: {{$cliente -> cantidad}}</li>
             <li>Telefono: {{$cliente -> telefono}}</li>
             <li>Producto Menudeo: {{$cliente -> producto_men}}</li>-->
-            
-            <li><a href="{{route('cliente.edit', $cliente)}}">
-                    Editar
-                </a>
-            </li>
+
         @endforeach
     </ul>
 </body>

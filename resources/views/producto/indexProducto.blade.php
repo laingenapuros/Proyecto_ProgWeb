@@ -12,10 +12,17 @@
         @foreach ($producto as $producto)
 
             <li>Nombre: 
-                <a href="{{route('producto.show', $producto)}}">
-                    {{$producto -> nombre}}
-                </a>
-            </li>
+                <a href="{{route('producto.show', $producto)}}">{{$producto -> nombre}}</a>
+            |
+            <a href="{{route('producto.edit', $producto)}}">Editar</a>
+            |
+            <form action="{{route('producto.destroy', $producto)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Eliminar</button>
+            </form></li>
+            <p>--------------------------------</p>
+
             <!--<li>Cantidad: 
                 <a href="{{route('producto.show', $producto)}}">
                 {{$producto -> cantidad}}
@@ -35,13 +42,6 @@
             <li>{{$producto -> nombre}}</li>
             <li>Cantidad: {{$producto -> cantidad}}</li>
             <li>Precio: {{$producto -> precio}}</li>-->
-            <li>
-                <a href="{{route('producto.edit', $producto)}}">
-                    Editar
-                </a>
-            </li>
-
-            <p>--------------------------------</p>
 
         @endforeach
     </ul>

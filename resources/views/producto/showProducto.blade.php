@@ -10,7 +10,7 @@
 
     <h3>Nombre Producto: {{ $producto->nombre }}</h3>
     <h3>Cantidad: {{ $producto->cantidad }}</h3>
-    <h3>Precio: {{ $producto->precio }}</h3>
+    <h3>Precio: $ {{ $producto->precio }}</h3>
     
 </body>
 </html>

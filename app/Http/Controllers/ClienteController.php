@@ -31,7 +31,13 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $cliente = new cliente();
+       //validacion
+        $request->validate([                                        
+            'nombre'=>'required',
+            'cantidad'=>'required',
+            'telefono'=>'required',
+            'producto_men'=>'required'
+        ]);
 
         $cliente -> nombre = $request -> nombre;
         $cliente -> cantidad = $request -> cantidad;
@@ -66,7 +72,21 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        //
+        ////validacion
+        $request->validate([                                        
+            'nombre'=>'required',
+            'cantidad'=>'required',
+            'telefono'=>'required',
+            'producto_men'=>'required'
+        ]);
+
+
+        $cliente-> nombre = $request->nombre;
+        $cliente-> cantidad = $request->cantidad;
+        $cliente-> telefono = $request->telefono;
+        $cliente-> producto_men = $request->producto_men;
+        $cliente ->save();
+        return redirect()->route("cliente.index");
     }
 
     /**
@@ -75,5 +95,7 @@ class ClienteController extends Controller
     public function destroy(Cliente $cliente)
     {
         //
+        $cliente->delete();
+        return redirect()->route('cliente.index');
     }
 }
