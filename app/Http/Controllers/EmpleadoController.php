@@ -12,22 +12,39 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        $empleado = empleado::all();
+        //dd($admin);
+        return view('empleado/indexEmpleado', compact('empleado'));
+        // -> with(['admins']);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create() //ContactoSave
     {
-        //
+
+        
+        return view('empleado/createEmpleado');
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) //ContactoSave
     {
+
+        $empleado = new empleado(); //modelo clase que representa tabla  crea instancia de esa clase 
+        
+        $empleado -> nombre  = $request -> nombre;//acceso a los atributos de la tabla
+        $empleado -> telefono = $request -> telefono;
+        $empleado -> correo = $request -> correo;
+        $empleado -> password = $request -> password;
+        $empleado ->save();
+
+        return redirect('/empleado');
+
         //
     }
 
@@ -37,6 +54,7 @@ class EmpleadoController extends Controller
     public function show(Empleado $empleado)
     {
         //
+        return view('empleado.showEmpleado', compact('empleado'));
     }
 
     /**
@@ -45,6 +63,7 @@ class EmpleadoController extends Controller
     public function edit(Empleado $empleado)
     {
         //
+        return view('empleado.editarEmpleado', compact('empleado'));
     }
 
     /**
@@ -53,6 +72,12 @@ class EmpleadoController extends Controller
     public function update(Request $request, Empleado $empleado)
     {
         //
+        $empleado -> nombre  = $request -> nombre;//acceso a los atributos de la tabla
+        $empleado -> telefono = $request -> telefono;
+        $empleado -> correo = $request -> correo;
+        $empleado -> password = $request -> password;
+        $empleado ->save();
+        return redirect()->route("empleado.index");
     }
 
     /**
@@ -61,5 +86,7 @@ class EmpleadoController extends Controller
     public function destroy(Empleado $empleado)
     {
         //
+        $empleado->delete();
+        return redirect()->route('empleado.index');
     }
 }
