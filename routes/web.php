@@ -29,3 +29,12 @@ Route::resource('producto', ProductoController::class); //agregar controladores
 Route::resource('cliente', ClienteController::class); //agregar controladores 
 
 //Route::get('Cliente/pdf', [ClienteController::class, 'pdf'])->name('norma.pdf'); //ruta con ese metodo
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
