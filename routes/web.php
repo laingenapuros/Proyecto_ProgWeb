@@ -22,11 +22,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/plantilla', function () {
+    return view('plantilla');
+});
+
 
 Route::resource('empleado', EmpleadoController::class); //agregar controladores 
 Route::resource('admin', AdminController::class); //agregar controladores 
 Route::resource('producto', ProductoController::class); //agregar controladores 
 Route::resource('cliente', ClienteController::class); //agregar controladores 
+
+
 
 //Route::get('Cliente/pdf', [ClienteController::class, 'pdf'])->name('norma.pdf'); //ruta con ese metodo
 Route::middleware([
