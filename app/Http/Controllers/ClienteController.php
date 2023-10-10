@@ -38,6 +38,7 @@ class ClienteController extends Controller
             'telefono'=>'required',
             'producto_men'=>'required'
         ]);
+        $cliente = new cliente();
 
         $cliente -> nombre = $request -> nombre;
         $cliente -> cantidad = $request -> cantidad;

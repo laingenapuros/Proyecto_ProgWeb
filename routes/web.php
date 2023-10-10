@@ -6,6 +6,7 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\RequerimientoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::resource('empleado', EmpleadoController::class); //agregar controladores
 Route::resource('admin', AdminController::class); //agregar controladores 
 Route::resource('producto', ProductoController::class); //agregar controladores 
 Route::resource('cliente', ClienteController::class); //agregar controladores 
+Route::resource('requerimiento', RequerimientoController::class); //agregar controladores 
 
 
 
