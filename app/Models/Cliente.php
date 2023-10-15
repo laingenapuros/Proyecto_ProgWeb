@@ -10,6 +10,6 @@ class Cliente extends Model
     use HasFactory;
     
     public function requerimientos(){
-        return $this->hasMany($Requerimiento::class);
+        return $this->hasMany(Requerimiento::class);
     }
 }

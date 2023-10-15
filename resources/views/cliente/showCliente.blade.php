@@ -12,6 +12,14 @@
     <h3>Cantidad: {{ $cliente->cantidad }}</h3>
     <h3>Telefono: {{ $cliente->telefono }}</h3>
     <h3>Producto Menudeo: {{ $cliente->producto_men }}</h3>
+
+    <ul>
+        @foreach ($cliente -> requerimientos as $req)
+            <li>
+                {{ $req ->identificador}}
+            </li>
+        @endforeach
+    </ul>
     
 </body>
 </html>

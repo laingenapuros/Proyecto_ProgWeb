@@ -14,6 +14,9 @@ class RequerimientoController extends Controller
     public function index()
     {
         //
+        $reqs = Requerimiento::all();
+
+        return view ('req.indexReq', compact ('reqs'));
     }
 
     /**
