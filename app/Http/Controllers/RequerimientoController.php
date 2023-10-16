@@ -35,12 +35,15 @@ class RequerimientoController extends Controller
      */
     public function store(Request $request)
     {
+        //forma 3 rapida 
+        Requerimiento::create($request->all());
+        
         //forma 1 de guardar
-        $req = new Requerimiento();
+        /*$req = new Requerimiento();
         $req->cliente_id = $request->cliente_id;
         $req->identificador = $request->identificador;
         $req->parrafo = $request->parrafo;
-        $req->save();
+        $req->save();*/
 
         //forma 2 
         /*$req = new Cliente();
@@ -50,6 +53,9 @@ class RequerimientoController extends Controller
 
         $cliente = Cliente::find($request->cliente_id);
         $cliente->requerimientos()->save($req);*/
+
+        $cliente = Cliente::find($request->cliente_id);
+        $cliente->requerimientos()->save($req);
 
         return redirect()->route('cliente.index');
 

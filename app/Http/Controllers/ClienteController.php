@@ -10,6 +10,13 @@ class ClienteController extends Controller
     /**
      * Display a listing of the resource.
      */
+    //forma 3 de middleware
+    /* public function __construct()
+    {
+       $this->middleware('auth')->except(['index', 'show']);
+
+    }*/
+
     public function index()
     {
         $cliente = cliente::all();
@@ -38,16 +45,19 @@ class ClienteController extends Controller
             'telefono'=>'required',
             'producto_men'=>'required'
         ]);
-        $cliente = new cliente();
+
+       Cliente::create( $request -> all());
+
+        /**$cliente = new cliente();
 
         $cliente -> nombre = $request -> nombre;
         $cliente -> cantidad = $request -> cantidad;
         $cliente -> telefono = $request -> telefono;
         $cliente -> producto_men = $request -> producto_men;
 
-        $cliente -> save();
+        $cliente -> save();**/
 
-        return redirect('/cliente');
+        return redirect()->route('cliente.index');
     }
 
     /**
@@ -80,13 +90,16 @@ class ClienteController extends Controller
             'telefono'=>'required',
             'producto_men'=>'required'
         ]);
+        
+        //dd($request->except('_token', '_method'));
+        Cliente::where('id', $cliente->id)->update($request -> except('_token', '_method'));
 
-
-        $cliente-> nombre = $request->nombre;
+        /**$cliente-> nombre = $request->nombre;
         $cliente-> cantidad = $request->cantidad;
         $cliente-> telefono = $request->telefono;
         $cliente-> producto_men = $request->producto_men;
-        $cliente ->save();
+        $cliente ->save();**/
+
         return redirect()->route("cliente.index");
     }
 

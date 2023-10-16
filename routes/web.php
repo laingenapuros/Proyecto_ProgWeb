@@ -27,13 +27,27 @@ Route::get('/plantilla', function () {
     return view('plantilla');
 });
 
+//forma 2
+/*Route::middleware('auth')->group(function(){
+    Route::resource('empleado', EmpleadoController::class); //agregar controladores 
+    Route::resource('admin', AdminController::class); //agregar controladores 
+    Route::resource('producto', ProductoController::class); //agregar controladores 
+    Route::resource('cliente', ClienteController::class); //agregar controladores 
+    Route::resource('requerimiento', RequerimientoController::class); //agregar controladores 
+});*/
+
+//forma 1
+/*Route::resource('empleado', EmpleadoController::class)->middleware('auth'); //agregar controladores 
+Route::resource('admin', AdminController::class)->middleware('auth'); //agregar controladores 
+Route::resource('producto', ProductoController::class)->middleware('auth'); //agregar controladores 
+Route::resource('cliente', ClienteController::class)->middleware('auth'); //agregar controladores 
+Route::resource('requerimiento', RequerimientoController::class)->middleware('auth'); //agregar controladores */
 
 Route::resource('empleado', EmpleadoController::class); //agregar controladores 
 Route::resource('admin', AdminController::class); //agregar controladores 
 Route::resource('producto', ProductoController::class); //agregar controladores 
 Route::resource('cliente', ClienteController::class); //agregar controladores 
 Route::resource('requerimiento', RequerimientoController::class); //agregar controladores 
-
 
 
 //Route::get('Cliente/pdf', [ClienteController::class, 'pdf'])->name('norma.pdf'); //ruta con ese metodo
