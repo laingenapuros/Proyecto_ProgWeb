@@ -99,8 +99,16 @@
                     <!-- Authentication card start -->
 
                         <form class="md-float-material form-material" action="/admin" method="post">
-                        
-                        @csrf
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                     @csrf
                             <div class="text-center">
                                 <!--img src="{{asset('plant/images/logo.png')}}" alt="logo.png"-->
                             </div>

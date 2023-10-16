@@ -35,6 +35,13 @@ class EmpleadoController extends Controller
     public function store(Request $request) //ContactoSave
     {
 
+        $request->validate([                                        
+            'nombre' => 'required',
+            'telefono' => 'required',
+            'correo' => 'required',
+            'password' => 'required'
+        ]);
+
         $empleado = new empleado(); //modelo clase que representa tabla  crea instancia de esa clase 
         
         $empleado -> nombre  = $request -> nombre;//acceso a los atributos de la tabla
