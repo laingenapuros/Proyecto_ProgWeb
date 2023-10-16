@@ -18,16 +18,20 @@ use App\Http\Controllers\ProductoController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/plantilla', function () {
+    return view('plantilla');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
 
 //Route::resource('Proveedor', ProveedorController::class); //agregar controladores metodos todos show, delete, etc 
 Route::resource('empleado', empleadoController::class); //agregar controladores 
 Route::resource('admin', adminController::class); //agregar controladores 
 Route::resource('Producto', ProductoController::class); //agregar controladores 
 Route::resource('Cliente', ClienteController::class); //agregar controladores \
+Route::resource('Compra', Controller::class); //agregar controladores \
 // Route::get('Admin/pdf',[AdminController::class, 'pdf']) -> name ('Admin.pdf'); //agregar rutas
 Route::middleware([
     'auth:sanctum',
