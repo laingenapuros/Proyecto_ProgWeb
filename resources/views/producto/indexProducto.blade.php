@@ -455,10 +455,9 @@
                                 <li>{{$producto -> nombre}}</li>
                                 <li>Cantidad: {{$producto -> cantidad}}</li>
                                 <li>Precio: {{$producto -> precio}}</li>-->
-
                             @endforeach
+                            
                         </ul>
-
                     </div>
                 </div>
             </div>

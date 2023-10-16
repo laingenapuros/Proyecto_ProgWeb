@@ -461,8 +461,8 @@
                                 <li>Cantidad: {{$cliente -> cantidad}}</li>
                                 <li>Telefono: {{$cliente -> telefono}}</li>
                                 <li>Producto Menudeo: {{$cliente -> producto_men}}</li>-->
-
                             @endforeach
+                            
                         </ul>
                     </div>
                 </div>
