@@ -35,6 +35,12 @@ class AdminController extends Controller
     public function store(Request $request) //ContactoSave
     {
 
+        $request->validate([                                        
+            'nombre' => 'required',
+            'correo' => 'required',
+            'password' => 'required'
+        ]);
+
         $admin = new admin(); //modelo clase que representa tabla  crea instancia de esa clase 
         
         $admin -> nombre  = $request -> nombre;//acceso a los atributos de la tabla
