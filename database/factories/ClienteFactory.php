@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,7 +21,8 @@ class ClienteFactory extends Factory
             'nombre' => fake()->sentence(),
             'cantidad' => $this->faker->lexify(),
             'telefono' => fake()->randomNumber(5, true),
-            'producto_men' => $this->faker->randomNumber(2, false)
+            'producto_men' => $this->faker->randomNumber(2, false),
+            'user_id' => User::factory(),
 
         ];
     }

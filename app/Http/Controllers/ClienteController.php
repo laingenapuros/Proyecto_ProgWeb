@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
 class ClienteController extends Controller
 {
@@ -19,7 +20,10 @@ class ClienteController extends Controller
 
     public function index()
     {
-        $cliente = cliente::all();
+       // $cliente = cliente::all();
+        $cliente = cliente::get();
+       
+       //$cliente = Cliente::where('user_id', Auth::id())->get();
         //dd($clientes);
         return view('cliente/indexCliente', compact('cliente'));
 
@@ -46,7 +50,8 @@ class ClienteController extends Controller
             'producto_men'=>'required'
         ]);
 
-       Cliente::create( $request -> all());
+        $request->merge(['user_id'=>Auth::id()]);
+        Cliente::create( $request -> all());
 
         /**$cliente = new cliente();
 
@@ -54,8 +59,12 @@ class ClienteController extends Controller
         $cliente -> cantidad = $request -> cantidad;
         $cliente -> telefono = $request -> telefono;
         $cliente -> producto_men = $request -> producto_men;
+       
+        //$cliente -> user_id = Auth::id(); //nuevo
+        $user-> Auth::user();
+        $user-> clientes()->save($cliente);
 
-        $cliente -> save();**/
+       // $cliente -> save();**/
 
         return redirect()->route('cliente.index');
     }
