@@ -139,6 +139,14 @@
                                         <span class="form-bar"></span>
                                         <label class="float-label">Ingresa tu precio menudeo</label>
                                     </div>
+
+                                    <select name = "producto_id[]" multiple>
+                                        @foreach ($prods as @prod)
+                                            <option value = "{{$prod->id}}"> {{$prod->nombre}} </option>
+                                        @endforeach
+                                    </select>
+
+
                                     <div class="row m-t-25 text-left">
                                         <div class="col-12">
                                             <div class="checkbox-fade fade-in-primary d-">

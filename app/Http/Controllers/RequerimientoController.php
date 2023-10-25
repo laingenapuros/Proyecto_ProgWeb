@@ -37,7 +37,7 @@ class RequerimientoController extends Controller
     {
         //forma 3 rapida 
         Requerimiento::create($request->all());
-        
+       
         //forma 1 de guardar
         /*$req = new Requerimiento();
         $req->cliente_id = $request->cliente_id;
@@ -52,10 +52,10 @@ class RequerimientoController extends Controller
         $req->parrafo = $request->parrafo;
 
         $cliente = Cliente::find($request->cliente_id);
-        $cliente->requerimientos()->save($req);*/
+        $cliente->requerimientos()->save($req);
 
         $cliente = Cliente::find($request->cliente_id);
-        $cliente->requerimientos()->save($req);
+        $cliente->requerimientos()->save($req);*/
 
         return redirect()->route('cliente.index');
 

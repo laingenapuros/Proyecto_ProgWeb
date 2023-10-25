@@ -432,6 +432,26 @@
                                 </li>
                             @endforeach
                         </ul>
+
+                        <h3>Pedidos:</h3>
+                        <ul>
+                            @foreach ($cliente -> productos as $prod)
+                                <li>{{ $prod -> nombre}}</li>
+                            @endforeach
+                        </ul>
+
+                        {{--<form action="{{route('cliente.agregar-prod', $cliente)}}" method = "POST">
+
+                            @csrf 
+                            <input type = "hidden" name = "cliente_id" value = "{{$cliente_id}}">   
+                            <select name = "producto_id[]" multiple>
+
+                               @foreach ($prods ad $prod)
+                                    <option value = "{{ $prod->id}}">{{$prod->nombre}}</option>
+                                @endforeach
+                            </select>
+                        </form>--}}
+
                     </div>
                 </div>
             </div>

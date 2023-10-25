@@ -21,9 +21,9 @@ class ClienteController extends Controller
     public function index()
     {
        // $cliente = cliente::all();
-        $cliente = cliente::get();
+        $cliente = cliente::get(); //obtener todos los registros de la tabla
        
-       //$cliente = Cliente::where('user_id', Auth::id())->get();
+       //$cliente = Cliente::where('user_id', Auth::id())->get(); //obtiene los registros unicamente del id del User ingresado
         //dd($clientes);
         return view('cliente/indexCliente', compact('cliente'));
 
@@ -53,6 +53,12 @@ class ClienteController extends Controller
         $request->merge(['user_id'=>Auth::id()]);
         Cliente::create( $request -> all());
 
+        $cliente->productos()->attach($request->producto_id);
+
+        //$cliente = Cliente::create( $request -> all());
+
+        //$cliente->producto()->attach($request->producto_id);
+
         /**$cliente = new cliente();
 
         $cliente -> nombre = $request -> nombre;
@@ -65,6 +71,7 @@ class ClienteController extends Controller
         $user-> clientes()->save($cliente);
 
        // $cliente -> save();**/
+
 
         return redirect()->route('cliente.index');
     }

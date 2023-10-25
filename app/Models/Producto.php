@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
     use HasFactory;
+
+    protected $table = 'productos';
+    public $timestamps = false;
+
+    public function clientes(){
+        return $this->belongsToMany(Cliente::class);
+    }
 }
