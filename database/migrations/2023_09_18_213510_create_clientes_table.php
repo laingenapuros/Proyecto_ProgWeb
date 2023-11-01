@@ -13,11 +13,15 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('producto_id');
+            //$table->foreignId('producto_id')->constrained();
+            //$table->foreignId('producto_id')->references('id')->on('productos');
             $table -> string('nombre');
             $table -> string('cantidad');
             $table -> string('telefono');
             $table -> string('producto_men');
+            $table->timestamps();
+            $table->softDeletes();
 
         });
     }

@@ -140,11 +140,13 @@
                                         <label class="float-label">Ingresa tu precio menudeo</label>
                                     </div>
 
-                                    <select name = "producto_id[]" multiple>
-                                        @foreach ($prods as @prod)
-                                            <option value = "{{$prod->id}}"> {{$prod->nombre}} </option>
-                                        @endforeach
-                                    </select>
+                                    <div class="form-group form-primary">
+                                        <select name = "producto_id[]" multiple>
+                                            @foreach ($prods as $prod)
+                                                <option value = "{{$prod->id}}"> {{$prod->nombre}} </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
 
                                     <div class="row m-t-25 text-left">

@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('requerimientos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->foreignId('cliente_id')->constrained;
+            //$table->timestamps();
+            //$table->foreignId('cliente_id')->constrained;
+            $table->foreignId('cliente_id')->references('id')->on('clientes');
             $table->string('identificador');
             $table->text('parrafo');
         });

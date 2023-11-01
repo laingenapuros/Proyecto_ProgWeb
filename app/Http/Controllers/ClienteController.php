@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth; 
 
 class ClienteController extends Controller
@@ -21,8 +23,11 @@ class ClienteController extends Controller
     public function index()
     {
        // $cliente = cliente::all();
-        $cliente = cliente::get(); //obtener todos los registros de la tabla
+        //$cliente = cliente::get(); //obtener todos los registros de la tabla
        
+        $cliente = Cliente::with('user')->get();
+        //$cliente = Cliente::with('user', 'requerimientos')->get(); //para usar y optimizar las búsquedas en la base de datos y que se muestre en la barrita de queries
+
        //$cliente = Cliente::where('user_id', Auth::id())->get(); //obtiene los registros unicamente del id del User ingresado
         //dd($clientes);
         return view('cliente/indexCliente', compact('cliente'));
@@ -34,7 +39,9 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('cliente/createCliente');
+
+        $prods = Producto::all();
+        return view('cliente/createCliente', compact('prods'));
     }
 
     /**
@@ -47,7 +54,8 @@ class ClienteController extends Controller
             'nombre'=>'required',
             'cantidad'=>'required',
             'telefono'=>'required',
-            'producto_men'=>'required'
+            'producto_men'=>'required',
+            'producto_id'=>'required'
         ]);
 
         $request->merge(['user_id'=>Auth::id()]);
@@ -91,6 +99,9 @@ class ClienteController extends Controller
     public function edit(Cliente $cliente)
     {
         //
+        //if(! Gate::allows('admin-norma', $cliente)){
+            //return abort(403);
+        //};
         return view('cliente.editCliente', compact('cliente'));
     }
 
@@ -122,9 +133,15 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cliente $cliente)
+    public function destroy(Request $request, Cliente $cliente)
     {
         //
+        //$cliente->requerimientos()->delete(); //1 a muchos
+        //$cliente->requerimientos()->detach(); //muchos a muchos
+
+        /**if($request->user()->cannot('delete', $cliente)){
+            abort(403);
+        }**/
         $cliente->delete();
         return redirect()->route('cliente.index');
     }

@@ -15,6 +15,6 @@ class ClienteSeeder extends Seeder
     {
         //
 
-        Cliente::factory()->count(5)->create();
+        Cliente::factory()->count(10)->create();
     }
 }

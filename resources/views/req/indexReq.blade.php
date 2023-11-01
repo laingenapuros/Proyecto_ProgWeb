@@ -423,9 +423,9 @@
                         <table border = "1">
                             <thead>
                                 <tr>
-                                    <th>Norma</th>
-                                    <th>Identificador</th>
-                                    <th>Parrafo</th>
+                                    <th> ID </th>
+                                    <th> Identificador </th>
+                                    <th> Parrafo </th>
                                 </tr>
                             </thead>
                             <tbody>

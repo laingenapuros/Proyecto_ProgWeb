@@ -425,11 +425,10 @@
                         <h3>Telefono: {{ $cliente->telefono }}</h3>
                         <h3>Producto Menudeo: {{ $cliente->producto_men }}</h3>
 
+                        <h3>Requerimientos:</h3>
                         <ul>
                             @foreach ($cliente -> requerimientos as $req)
-                                <li>
-                                    Requerimiento: {{ $req ->identificador}}
-                                </li>
+                                <li> {{ $req ->identificador}} </li>
                             @endforeach
                         </ul>
 
