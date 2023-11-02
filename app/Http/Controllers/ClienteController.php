@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Cliente;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use App\Mail\NotificaClienteCreado;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth; 
 
 class ClienteController extends Controller
@@ -59,7 +61,7 @@ class ClienteController extends Controller
         ]);
 
         $request->merge(['user_id'=>Auth::id()]);
-        Cliente::create( $request -> all());
+        $cliente = Cliente::create($request -> all());
 
         $cliente->productos()->attach($request->producto_id);
 
@@ -80,6 +82,7 @@ class ClienteController extends Controller
 
        // $cliente -> save();**/
 
+       Mail::to($request->user())->send(new NotificaClienteCreado($cliente));
 
         return redirect()->route('cliente.index');
     }

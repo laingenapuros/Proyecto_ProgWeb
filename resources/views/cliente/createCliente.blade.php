@@ -141,9 +141,12 @@
                                     </div>
 
                                     <div class="form-group form-primary">
+                                    <label>Pedidos</label>
                                         <select name = "producto_id[]" multiple>
                                             @foreach ($prods as $prod)
-                                                <option value = "{{$prod->id}}"> {{$prod->nombre}} </option>
+                                                <option value = "{{$prod->id}}" @selected(array_search($prod->id, old('producto_id') ?? []) !== false )> 
+                                                    {{$prod->nombre}} 
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>

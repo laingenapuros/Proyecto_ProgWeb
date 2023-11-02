@@ -27,6 +27,10 @@ Route::get('/plantilla', function () {
     return view('plantilla');
 });
 
+/*Route::get('/inicio', function () {
+    return view('inicio');
+});*/
+
 //forma 2
 /*Route::middleware('auth')->group(function(){
     Route::resource('empleado', EmpleadoController::class); //agregar controladores 
@@ -49,6 +53,13 @@ Route::resource('producto', ProductoController::class); //agregar controladores
 Route::resource('cliente', ClienteController::class); //agregar controladores 
 Route::resource('requerimiento', RequerimientoController::class); //agregar controladores 
 
+Route::get('/logout', function(){
+    auth()->logout();
+    Session()->flush();
+
+    return view('inicio');
+})->name('logout');
+
 
 //Route::get('Cliente/pdf', [ClienteController::class, 'pdf'])->name('norma.pdf'); //ruta con ese metodo
 Route::middleware([
@@ -56,7 +67,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/inicio', function () {
+        return view('inicio');
+    })->name('inicio');
 });

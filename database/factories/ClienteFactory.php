@@ -23,7 +23,7 @@ class ClienteFactory extends Factory
             //$this->faker->lexify(),
             'telefono' => fake()->randomNumber(5, true),
             'producto_men' => $this->faker->randomNumber(2, false),
-            'producto_id' => $this->faker->randomNumber(1, false),
+            //'producto_id' => $this->faker->randomNumber(1, false),
             'user_id' => User::factory(),
 
         ];

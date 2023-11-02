@@ -374,39 +374,41 @@
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
                                         <div class="page-header-title">
-                                            <h5 class="m-b-10">Dashboard</h5>
+                                            <h5 class="m-b-10">INICIO</h5>
                                             <p class="m-b-0">Bienvenido a Hogaza</p>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <ul class="breadcrumb">
-                                            <li class="breadcrumb-item">
-                                                <a href="/cliente/create"> Crear cliente </a>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Page-header end -->
                         <!--AQUÍ IBA LO RECORTADO-->
-                        <h1>Index Cliente</h1>
-                        <ul>
+                        <h1>INICIO</h1>
 
-                            @foreach ($cliente as $clien)
-                                <li>Nombre: 
-                                    <a href="{{route('cliente.show', $clien)}}">{{$clien -> nombre}}</a>
-                                |
-                                <a href="{{route('cliente.edit', $clien)}}">Editar</a>
-                                |
-                                <form action="{{route('cliente.destroy', $clien)}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit">Eliminar</button>
-                                </form></li>
-                                <p>--------------------------------</p>
-                            @endforeach
+                        <ul>
                             
+                            @auth
+                                <h3>¿Qué desea hacer?</h3>
+                                <ul>
+                                    <li>
+                                        <a href="{{route('cliente.index')}}">CLIENTES </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('producto.index')}}">PRODUCTOS </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('requerimiento.index')}}">REQUERIMIENTOS </a>
+                                    </li>
+                                </ul><br><br>
+                                <li>
+                                <a href="{{route('logout')}}">LOG OUT </a></li>
+
+                                @else
+                                <li>
+                                    <a href="{{route('login')}}">LOG IN </a>
+                                </li>
+
+                            @endauth
                         </ul>
                     </div>
                 </div>
