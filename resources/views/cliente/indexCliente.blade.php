@@ -165,7 +165,7 @@
                                     @auth
                                         <a href="{{route('logout')}}"><i class="ti-layout-sidebar-left"></i>Log Out</a>
                                     @else
-                                        <a href=#><i class="ti-layout-sidebar-left"></i>Log Out</a>
+                                        <a href="{{route('login')}}"><i class="ti-layout-sidebar-left"></i>Log In</a>
                                     @endauth
                                     </li>
                                 </ul>
@@ -195,7 +195,9 @@
                                             <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
                                             <a href="#!"><i class="ti-settings"></i>Settings</a>
                                             @auth
-                                            <a href="{{route('logout')}}"><i class="ti-layout-sidebar-left"></i>Log Out</a>
+                                                <a href="{{route('logout')}}"><i class="ti-layout-sidebar-left"></i>Log Out</a>
+                                            @else
+                                                <a href="{{route('login')}}"><i class="ti-layout-sidebar-left"></i>Log In</a>
                                             @endauth
                                         </li>
                                     </ul>
@@ -374,7 +376,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
                                         <div class="page-header-title">
-                                            <h5 class="m-b-10">Dashboard</h5>
+                                            <h5 class="m-b-10">Indice Clientes</h5>
                                             <p class="m-b-0">Bienvenido a Hogaza</p>
                                         </div>
                                     </div>
@@ -383,6 +385,9 @@
                                             <li class="breadcrumb-item">
                                                 <a href="/cliente/create"> Crear cliente </a>
                                             </li>
+                                            <li class="breadcrumb-item">
+                                                <a href="/inicio"> Inicio </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -390,7 +395,7 @@
                         </div>
                         <!-- Page-header end -->
                         <!--AQUÍ IBA LO RECORTADO-->
-                        <h1>Index Cliente</h1>
+                        <h1>Clientes</h1>
                         <ul>
 
                             @foreach ($cliente as $clien)
@@ -398,7 +403,6 @@
                                     <a href="{{route('cliente.show', $clien)}}">{{$clien -> nombre}}</a>
                                 |
                                 <a href="{{route('cliente.edit', $clien)}}">Editar</a>
-                                |
                                 <form action="{{route('cliente.destroy', $clien)}}" method="POST">
                                     @csrf
                                     @method('DELETE')

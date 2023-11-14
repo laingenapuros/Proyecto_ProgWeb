@@ -41,7 +41,6 @@ class ClienteController extends Controller
      */
     public function create()
     {
-
         $prods = Producto::all();
         return view('cliente/createCliente', compact('prods'));
     }
@@ -105,7 +104,9 @@ class ClienteController extends Controller
         //if(! Gate::allows('admin-norma', $cliente)){
             //return abort(403);
         //};
-        return view('cliente.editCliente', compact('cliente'));
+        $prods = Producto::all();
+
+        return view('cliente.editCliente', compact('cliente', 'prods'));
     }
 
     /**
@@ -122,13 +123,15 @@ class ClienteController extends Controller
         ]);
         
         //dd($request->except('_token', '_method'));
-        Cliente::where('id', $cliente->id)->update($request -> except('_token', '_method'));
+        Cliente::where('id', $cliente->id)->update($request -> except('_token', '_method', 'producto_id'));
+        $cliente->productos()->sync($request->producto_id);
 
         /**$cliente-> nombre = $request->nombre;
         $cliente-> cantidad = $request->cantidad;
         $cliente-> telefono = $request->telefono;
         $cliente-> producto_men = $request->producto_men;
         $cliente ->save();**/
+
 
         return redirect()->route("cliente.index");
     }

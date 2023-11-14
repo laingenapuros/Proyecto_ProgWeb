@@ -170,7 +170,9 @@
                             <li class="user-profile header-notification">
                                 <a href="#!" class="waves-effect waves-light">
                                     <img src="{{asset('plant/images/avatar-4.jpg')}}" class="img-radius" alt="User-Profile-Image">
-                                    <span>John Doe</span>
+                                    @auth
+                                        <span>{{Auth::user()->name}}</span>
+                                    @endauth
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
@@ -195,9 +197,11 @@
                                         </a>
                                     </li>
                                     <li class="waves-effect waves-light">
-                                        <a href="auth-normal-sign-in.html">
-                                            <i class="ti-layout-sidebar-left"></i> Logout
-                                        </a>
+                                        @auth
+                                            <a href="{{route('logout')}}"><i class="ti-layout-sidebar-left"></i>Log Out</a>
+                                        @else
+                                            <a href="{{route('login')}}"><i class="ti-layout-sidebar-left"></i>Log In</a>
+                                        @endauth
                                     </li>
                                 </ul>
                             </li>
@@ -215,7 +219,9 @@
                                 <div class="main-menu-header">
                                     <img class="img-80 img-radius" src="{{asset('plant/images/avatar-4.jpg')}}" alt="User-Profile-Image">
                                     <div class="user-details">
-                                        <span id="more-details">John Doe<i class="fa fa-caret-down"></i></span>
+                                        @auth
+                                        <span id="more-details">{{Auth::user()->name}}<i class="fa fa-caret-down"></i></span>
+                                        @endauth
                                     </div>
                                 </div>
                                 <div class="main-menu-content">
@@ -223,7 +229,11 @@
                                         <li class="more-details">
                                             <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
                                             <a href="#!"><i class="ti-settings"></i>Settings</a>
-                                            <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                            @auth
+                                                <a href="{{route('logout')}}"><i class="ti-layout-sidebar-left"></i>Log Out</a>
+                                            @else
+                                                <a href="{{route('login')}}"><i class="ti-layout-sidebar-left"></i>Log In</a>
+                                            @endauth
                                         </li>
                                     </ul>
                                 </div>
@@ -401,7 +411,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
                                         <div class="page-header-title">
-                                            <h5 class="m-b-10">Dashboard</h5>
+                                            <h5 class="m-b-10">Información del Producto</h5>
                                             <p class="m-b-0">Bienvenido a Hogaza</p>
                                         </div>
                                     </div>
@@ -409,6 +419,9 @@
                                         <ul class="breadcrumb">
                                             <li class="breadcrumb-item">
                                                 <a href="/producto"> Regresar </a>
+                                            </li>
+                                            <li class="breadcrumb-item">
+                                            <a href="{{route('producto.edit', $producto)}}"> Editar </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -418,9 +431,9 @@
                         <!-- Page-header end -->
                         <!--AQUÍ IBA LO RECORTADO-->
 
-                        <h1>Show Producto</h1>
+                        <h1>Producto</h1>
 
-                        <h3>Nombre Producto: {{ $producto->nombre }}</h3>
+                        <h3>Nombre: {{ $producto->nombre }}</h3>
                         <h3>Cantidad: {{ $producto->cantidad }}</h3>
                         <h3>Precio: $ {{ $producto->precio }}</h3>
 

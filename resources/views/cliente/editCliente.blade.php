@@ -140,6 +140,16 @@
                                         <span class="form-bar"></span>
                                         <label>Ingresa nuevo precio menudeo</label>
                                     </div>
+                                    <div class="form-group form-primary">
+                                    <label>Pedidos</label>
+                                        <select name = "producto_id[]" multiple>
+                                            @foreach ($prods as $prod)
+                                                <option value = "{{$prod->id}}" @selected(array_search($prod->id, old('producto_id') ?? []) !== false )> 
+                                                    {{$prod->nombre}} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                     <div class="row m-t-25 text-left">
                                         <div class="col-12">
                                             <div class="checkbox-fade fade-in-primary d-">
