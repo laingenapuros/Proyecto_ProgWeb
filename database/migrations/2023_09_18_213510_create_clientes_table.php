@@ -20,6 +20,8 @@ return new class extends Migration
             $table -> string('cantidad');
             $table -> string('telefono');
             $table -> string('producto_men');
+            $table -> string('archivo_ubicacion');
+            $table -> string('archivo_nombre');
             $table->timestamps();
             $table->softDeletes();
 

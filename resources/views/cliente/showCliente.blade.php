@@ -453,6 +453,12 @@
                             @endforeach
                         </ul>
 
+                        <hr>
+                        <h3>Archivos de ordenes:</h3>
+                        <h3>Img: 
+                            <img src="{{ \Storage::url ($cliente->archivo_ubicacion)}}" alt=""></h3>
+                        <h4> <a href="{{route('cliente.descarga', $cliente)}}">{{$cliente -> archivo_nombre}}</a> </h4>
+
                         {{--<form action="{{route('cliente.agregar-prod', $cliente)}}" method = "POST">
 
                             @csrf 
@@ -464,6 +470,8 @@
                                 @endforeach
                             </select>
                         </form>--}}
+
+
 
                     </div>
                 </div>

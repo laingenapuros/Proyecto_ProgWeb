@@ -98,7 +98,7 @@
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
 
-                        <form class="md-float-material form-material" action="/cliente" method="post">
+                        <form class="md-float-material form-material" action="/cliente" method="post" enctype = "multipart/form-data">
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -149,6 +149,12 @@
                                                 </option>
                                             @endforeach
                                         </select>
+                                    </div>
+
+                                    <div class="form-group form-primary">
+                                        <input type="file" id="archivo"  name="archivo" value="{{old ('producto_men')}}" class="form-control"/>
+                                        <span class="form-bar"></span>
+                                        <label for = "archivo">Sube algún archivo</label>
                                     </div>
 
 

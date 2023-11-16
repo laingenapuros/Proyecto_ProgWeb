@@ -9,6 +9,7 @@ use App\Mail\NotificaClienteCreado;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Storage;
 
 class ClienteController extends Controller
 {
@@ -56,13 +57,25 @@ class ClienteController extends Controller
             'cantidad'=>'required',
             'telefono'=>'required',
             'producto_men'=>'required',
-            'producto_id'=>'required'
+            'producto_id'=>'required',
+            "archivo"=>'required|max:1000'
         ]);
 
-        $request->merge(['user_id'=>Auth::id()]);
+        if(!$request->file('archivo')->isValid()){
+            //$request->file('archivo')->store('imgs');
+        }
+
+        $request->merge(['user_id'=>Auth::id(), 
+            'archivo_nombre' => $request->file('archivo')->getClientOriginalName(), 
+            'archivo_ubicacion' => $request->file('archivo')->store('public/imgs'),
+        ]);
+
         $cliente = Cliente::create($request -> all());
 
         $cliente->productos()->attach($request->producto_id);
+
+        
+        
 
         //$cliente = Cliente::create( $request -> all());
 
@@ -81,7 +94,9 @@ class ClienteController extends Controller
 
        // $cliente -> save();**/
 
-       Mail::to($request->user())->send(new NotificaClienteCreado($cliente));
+
+
+       //Mail::to($request->user())->send(new NotificaClienteCreado($cliente));
 
         return redirect()->route('cliente.index');
     }
@@ -150,5 +165,9 @@ class ClienteController extends Controller
         }**/
         $cliente->delete();
         return redirect()->route('cliente.index');
+    }
+
+    public function descargar(Cliente $cliente){
+        return Storage::download($cliente->archivo_ubicacion, $cliente->archivo_nombre);
     }
 }
