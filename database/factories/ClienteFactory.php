@@ -25,6 +25,8 @@ class ClienteFactory extends Factory
             'producto_men' => $this->faker->randomNumber(2, false),
             //'producto_id' => $this->faker->randomNumber(1, false),
             'user_id' => User::factory(),
+            'archivo_ubicacion' => $this->faker->name(),
+            'archivo_nombre' => $this->faker->name(),
 
         ];
     }

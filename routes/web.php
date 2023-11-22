@@ -47,7 +47,7 @@ Route::resource('producto', ProductoController::class)->middleware('auth'); //ag
 Route::resource('cliente', ClienteController::class)->middleware('auth'); //agregar controladores 
 Route::resource('requerimiento', RequerimientoController::class)->middleware('auth'); //agregar controladores */
 
-Route::get('cleinte-descarga/{cliente}', [ClienteController::class, 'descargar'])->name('cliente.descarga'); //agregar controladores 
+Route::get('cliente-descarga/{cliente}', [ClienteController::class, 'descargar'])->name('cliente.descarga'); //agregar controladores 
 
 Route::resource('empleado', EmpleadoController::class); //agregar controladores 
 Route::resource('admin', AdminController::class); //agregar controladores 

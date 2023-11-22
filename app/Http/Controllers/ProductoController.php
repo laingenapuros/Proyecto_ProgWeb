@@ -4,12 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+       $this->middleware('auth')->except(['index', 'show']);
+
+    }
+
+
     public function index()
     {
         $producto = producto::all();

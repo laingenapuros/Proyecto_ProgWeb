@@ -74,8 +74,6 @@ class ClienteController extends Controller
 
         $cliente->productos()->attach($request->producto_id);
 
-        
-        
 
         //$cliente = Cliente::create( $request -> all());
 
@@ -134,10 +132,17 @@ class ClienteController extends Controller
             'nombre'=>'required',
             'cantidad'=>'required',
             'telefono'=>'required',
-            'producto_men'=>'required'
+            'producto_men'=>'required',
+            //"archivo"=>'required|max:1000'
         ]);
         
         //dd($request->except('_token', '_method'));
+
+        //$cliente->merge(['user_id'=>Auth::id(), 
+            //'archivo_nombre' => $cliente->file('archivo')->getClientOriginalName(), 
+            //'archivo_ubicacion' => $cliente->file('archivo')->store('public/imgs'),
+        //]);
+
         Cliente::where('id', $cliente->id)->update($request -> except('_token', '_method', 'producto_id'));
         $cliente->productos()->sync($request->producto_id);
 

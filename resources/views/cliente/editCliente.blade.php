@@ -150,6 +150,15 @@
                                             @endforeach
                                         </select>
                                     </div>
+
+                                    <div class="form-group form-primary">
+                                        <input type="file" id="archivo"  name="archivo" value="{{old ('producto_men')}}" class="form-control"/>
+                                        <span class="form-bar"></span>
+                                        <label for = "archivo">Cambia el archivo</label>
+                                    </div>
+                                    
+
+
                                     <div class="row m-t-25 text-left">
                                         <div class="col-12">
                                             <div class="checkbox-fade fade-in-primary d-">

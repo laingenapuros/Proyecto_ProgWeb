@@ -17,6 +17,7 @@ return new class extends Migration
             $table -> string('nombre');
             $table -> string('cantidad');
             $table -> string('precio');
+            $table->softDeletes();
 
         });
     }
