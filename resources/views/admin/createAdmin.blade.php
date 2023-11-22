@@ -134,6 +134,12 @@
                                         <span class="form-bar"></span>
                                         <label class="float-label">Ingresa tu contraseña</label>
                                     </div>
+                                     <select name = "empleado_id[]" multiple>
+                                          @foreach ($empleados as $empl)
+                                            <option value = "{{$empl->id}}">  @selected(array_search($empl->id, old('empleado_id') ?? []) !== false )> {{$empl->nombre}} </option>
+                                            
+                                        @endforeach 
+                                    </select>
                                     <div class="row m-t-25 text-left">
                                         <div class="col-12">
                                             <div class="checkbox-fade fade-in-primary d-">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Empleado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class EmpleadoController extends Controller
 {
@@ -18,7 +20,7 @@ class EmpleadoController extends Controller
         // -> with(['admins']);
     }
 
-    /**
+    /**eaa
      * Show the form for creating a new resource.
      */
     public function create() //ContactoSave

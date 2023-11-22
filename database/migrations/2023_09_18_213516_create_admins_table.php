@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            //$table->foreignId('empleado_id');
             $table -> string('nombre');
             $table -> string('correo');
             $table -> string('password');
+            $table->softDeletes();
 
         });
     }

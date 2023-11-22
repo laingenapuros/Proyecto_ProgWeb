@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Index Admin</title>
+    <title>Index Compras</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -216,9 +216,6 @@
                                     <img class="img-80 img-radius" src="{{asset('plant/images/avatar-4.jpg')}}" alt="User-Profile-Image">
                                     <div class="user-details">
                                         <span id="more-details">John Doe<i class="fa fa-caret-down"></i></span>
-                                        @auth
-                                        <span id="more-details">{{Auth::user()->name}}<i class="fa fa-caret-down"></i></span>
-                                        @endauth
                                     </div>
                                 </div>
                                 <div class="main-menu-content">
@@ -227,12 +224,6 @@
                                             <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
                                             <a href="#!"><i class="ti-settings"></i>Settings</a>
                                             <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
-
-                                            @auth
-                                        <a href="{{route('logout')}}"><i class="ti-layout-sidebar-left"></i>Log Out</a>
-                                    @else
-                                        <a href=#><i class="ti-layout-sidebar-left"></i>Log Out</a>
-                                    @endauth
                                         </li>
                                     </ul>
                                 </div>
@@ -410,13 +401,14 @@
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
                                         <div class="page-header-title">
-                                            <h5 class="m-b-10">Inicio</h5>
+                                            <h5 class="m-b-10">Dashboard</h5>
                                             <p class="m-b-0">Bienvenido a Hogaza</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                    <ul class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="/admin/create">Crear Admin</a>
+                                        <ul class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="/requerimiento/create"> Crear requerimiento </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -425,27 +417,28 @@
                         </div>
                         <!-- Page-header end -->
                         <!--AQUÍ IBA LO RECORTADO-->
-                        <h1>IndexAdmin</h1>
-                        <ul>
-        
-        @foreach ($admin as $admin)
-        <a href="{{route('admin.show', $admin)}}">
-            {{$admin -> nombre}}
-        </a>
-        <a href="{{route('admin.edit', $admin)}}">
-              Editar
-        </a>
-        <form action ="{{route('admin.destroy',$admin)}}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit"> eliminar </button>
-    </form> 
-    
-        <!--<li> {{$admin ->nombre}} </li> 
-        <li> {{$admin ->correo}} </li>
-        <li> {{$admin ->password}} </li>-->
-        @endforeach
-    </ul>
+
+                        <h1>Index Compras</h1>
+
+                        <table border = "1">
+                            <thead>
+                                <tr>
+                                    <th> ID </th>
+                                    <th> Identificador </th>
+                                    <th> Parrafo </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($comp as $compra)
+                                    <tr>
+                                        <td>{{ $compra ->empleadoa->id}}</td>
+                                        <td>{{ $compra ->identificador}}</td>
+                                        <td>{{ $compra ->parrafo}}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        
                     </div>
                 </div>
             </div>
@@ -471,4 +464,5 @@
 
     <script type="text/javascript" src="{{asset('plant/js/script.js')}} "></script>
 </body>
+
 </html>
