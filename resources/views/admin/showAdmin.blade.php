@@ -407,7 +407,7 @@
                                     </div>
                                     <div class="col-md-4">
                                     <ul class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="/admin">Regresar</a>
+                                            <li class="breadcrumb-item"><a href="/admind">Regresar</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -424,6 +424,22 @@
             <p>Nombre Admin: {{ $admin->nombre }}</p>
             <p>Correo Admin: {{ $admin->correo }}</p>
             <p>Password Admin: {{ $admin->password }}</p>
+
+            <ul>
+                @foreach ($admin -> compras as $com)
+                <li>
+                   Compras: {{ $com ->identificador}}
+                                </li>
+                            @endforeach
+                        </ul>
+
+                        <h3>Empleados:</h3>
+                        <ul>
+                            @foreach ($admin -> empleados as $empl)
+                                <li>{{ $empl -> nombre}}</li>
+                            @endforeach
+                        </ul>
+
 
         
     </form> 

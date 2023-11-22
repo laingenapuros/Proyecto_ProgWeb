@@ -3,16 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Empleado;
+use App\Mail\NotificaEmpleadoCreado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate; 
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
+     public function __construct()
+    {
+       $this->middleware('auth')->except(['index', 'show']);
+
+    } 
+
     public function index()
     {
-        $admin = admin::all();
+        //$admin - admin::get();
+        $admin = admin::with('user')->get();
         //dd($admin);
         return view('admin/indexAdmin', compact('admin'));
         // -> with(['admins']);
@@ -24,8 +38,8 @@ class AdminController extends Controller
     public function create() //ContactoSave
     {
 
-        
-        return view('admin/createAdmin');
+        $empleados = Empleado::all();
+        return view('admin/createAdmin', compact('empleados'));
 
     }
 
@@ -38,17 +52,24 @@ class AdminController extends Controller
         $request->validate([                                        
             'nombre' => 'required',
             'correo' => 'required',
-            'password' => 'required'
+            'password' => 'required',
+            'empleado_id' => 'required'
         ]);
+        $request->merge(['user_id'=>Auth::id()]);
+        #Admin::create($request -> all());
+        $admin = Admin::create($request -> all());
+        $admin->empleados()->attach($request->empleado_id);
 
-        $admin = new admin(); //modelo clase que representa tabla  crea instancia de esa clase 
+        /*$admin = new admin(); //modelo clase que representa tabla  crea instancia de esa clase 
         
-        $admin -> nombre  = $request -> nombre;//acceso a los atributos de la tabla
-        $admin -> correo = $request -> correo;
-        $admin -> password = $request -> password;
-        $admin ->save();
+       // $admin -> nombre  = $request -> nombre;//acceso a los atributos de la tabla
+        //$admin -> correo = $request -> correo;
+        //$admin -> password = $request -> password;
+        //$admin ->save();*/
 
-        return redirect('/admin');
+        Mail::to($request->user())->send(new NotificaEmpleadoCreado($admin));
+
+        return redirect()->route('admin.index');
 
         //
     }
@@ -68,26 +89,38 @@ class AdminController extends Controller
     public function edit(Admin $admin)
     {
         //
-        return view('admin.editarAdmin', compact('admin'));
+        $empleados = Empleado::all();
+        return view('admin.editarAdmin', compact('admin','empleados'));
     }
 
     /**
      * Update the specified resource in storage.
      */
+    
     public function update(Request $request, Admin $admin)
     {
-        //
-        $admin -> nombre  = $request -> nombre;//acceso a los atributos de la tabla
+        //validacion
+        $request->validate([
+            'nombre' => 'required',
+            'correo' => 'required',
+            'password ' => 'required'
+        ]);
+
+        Admin::where('id', $admin ->id) ->update($request -> except('_token', '_method','empleado_id'));
+        $admin -> empleados()->sync($request->empleado_id);
+
+        /*$admin -> nombre  = $request e-> nombre;//acceso a los atributos de la tabla
         $admin -> correo = $request -> correo;
-        $admin -> password = $request -> password;
-        $admin ->save();
+        $admin -> password = $request -> password;*/
+        //$admin ->save();
+        
         return redirect()->route("admin.index");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Admin $admin)
+    public function destroy(Request $request, Admin $admin)
     {
         //
         $admin->delete();

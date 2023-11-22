@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('compras', function (Blueprint $table) {
-            $table->id();
-            //$table->timestamps();
-            //$table->foreignId('cliente_id')->constrained;
+        Schema::create('admin_empleado', function (Blueprint $table) {
             $table->foreignId('admin_id')->references('id')->on('admins');
-            $table->string('identificador');
-            $table->text('parrafo');
+            $table->foreignId('empleado_id')->references('id')->on('empleados');
         });
     }
 
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('compras');
+        Schema::dropIfExists('admin_empleado');
     }
 };
