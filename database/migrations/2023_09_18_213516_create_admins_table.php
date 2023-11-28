@@ -18,6 +18,8 @@ return new class extends Migration
             $table -> string('nombre');
             $table -> string('correo');
             $table -> string('password');
+            $table -> string('archivo_ubicacion');
+            $table -> string('archivo_nombre');
             $table->softDeletes();
 
         });

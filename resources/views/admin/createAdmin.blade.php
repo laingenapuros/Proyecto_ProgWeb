@@ -99,7 +99,7 @@
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
 
-                        <form class="md-float-material form-material" action="/admin" method="post">
+                        <form class="md-float-material form-material" action="/admin" method="post" enctype = "multipart/form-data">
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -144,6 +144,12 @@
                                             
                                         @endforeach 
                                     </select>
+                                    </div>
+                                    <div class="form-group form-primary">
+                                    <label for = "archivo"> Sube algún archivo </label>
+                                        <input type="file" id="archivo"  name="archivo" value="{{old ('empleado_id')}}" class="form-control"/>
+                                        <span class="form-bar"></span>
+                                        
                                     </div>
                                     <div class="row m-t-30">
                                         <div class="col-md-12">

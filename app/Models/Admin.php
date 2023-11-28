@@ -11,7 +11,7 @@ class Admin extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['nombre', 'correo', 'password','user_id']; //que puede enviar el usuario
+    protected $fillable = ['nombre', 'correo', 'password','user_id','archivo_nombre', 'archivo_ubicacion']; //que puede enviar el usuario
     //protected $guarded = ['id']; //que no puede enviar el usuario
      
      public function compras(){

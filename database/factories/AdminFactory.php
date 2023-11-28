@@ -22,6 +22,8 @@ class AdminFactory extends Factory
             'password' => fake()->sentence(),
             //'empleado_id' => $this->faker->randomNumber(1, false),
             'user_id' => User::factory(),
+            'archivo_ubicacion' => $this->faker->name(),
+            'archivo_nombre' => $this->faker->name(),
         ];
     }
 }
