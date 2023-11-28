@@ -102,11 +102,10 @@ class AdminController extends Controller
         //validacion
         $request->validate([
             'nombre' => 'required',
-            'correo' => 'required',
-            'password ' => 'required'
+            'correo' => 'required'
         ]);
 
-        Admin::where('id', $admin ->id) ->update($request -> except('_token', '_method','empleado_id'));
+        Admin::where('id', $admin ->id)->update($request -> except('_token', '_method','empleado_id'));
         $admin -> empleados()->sync($request->empleado_id);
 
         /*$admin -> nombre  = $request e-> nombre;//acceso a los atributos de la tabla

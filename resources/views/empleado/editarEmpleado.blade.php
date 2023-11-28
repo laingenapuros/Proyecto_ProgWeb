@@ -33,6 +33,9 @@
       <link rel="stylesheet" type="text/css" href="{{asset('plant/icon/font-awesome/css/font-awesome.min.css')}}">
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="{{asset('plant/css/style.css')}}">
+    
+      <link rel="icon"  type="image/png" href="publicc/plant/images/logo.png">
+    
   </head>
 
   <body themebg-pattern="theme1">
@@ -98,10 +101,19 @@
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
                     <form class="md-float-material form-material" action="{{route('empleado.update',$empleado)}}" method="POST">
-                    @csrf
-                    @method('PATCH')
+                    @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        @csrf
+                        @method('PATCH')
                             <div class="text-center">
-                                <!--img src="{{asset('plant/images/logo.png')}}" alt="logo.png"-->
+                                         
                             </div>
                             <div class="auth-box card">
                                 <div class="card-block">
@@ -132,20 +144,6 @@
                                         <span class="form-bar"></span>
                                         <label >Ingresa tu nueva  contraseña</label>
                                         
-                                    </div>
-                                    <div class="row m-t-25 text-left">
-                                        <div class="col-12">
-                                            <div class="checkbox-fade fade-in-primary d-">
-                                                <label>
-                                                    <input type="checkbox" value="">
-                                                    <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                                    <span class="text-inverse">Remember me</span>
-                                                </label>
-                                            </div>
-                                            <div class="forgot-phone text-right f-right">
-                                                <a href="auth-reset-password.html" class="text-right f-w-600"> Forgot Password?</a>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="row m-t-30">
                                         <div class="col-md-12">

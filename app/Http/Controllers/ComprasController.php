@@ -14,9 +14,9 @@ class ComprasController extends Controller
     public function index()
     {
         //
-        $reqs = Compras::all();
+        $comp = Compras::all();
 
-        return view ('req.indexCompras', compact ('reqs'));
+        return view ('compras/indexcompras', compact ('comp'));
     }
 
     /**
@@ -25,8 +25,8 @@ class ComprasController extends Controller
     public function create()
     {
         
-        $cliente = Admin::all();
-        return view('req.createCompra', compact('admin'));
+        $admin = Admin::all();
+        return view('compras/createcompras', compact('admin'));
 
     }
 

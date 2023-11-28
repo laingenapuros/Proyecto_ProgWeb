@@ -33,6 +33,7 @@
       <link rel="stylesheet" type="text/css" href="{{asset('plant/icon/font-awesome/css/font-awesome.min.css')}}">
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="{{asset('plant/css/style.css')}}">
+      <link rel="icon"  type="image/png" href="plant/images/logo.png">
   </head>
 
   <body themebg-pattern="theme1">
@@ -134,29 +135,19 @@
                                         <span class="form-bar"></span>
                                         <label class="float-label">Ingresa tu contraseña</label>
                                     </div>
-                                     <select name = "empleado_id[]" multiple>
+                                    <div class="form-group form-primary">
+                                    <label >Selecciona a tu empleado</label>
+                                     <br> <select name = "empleado_id[]" multiple>
+                                    
                                           @foreach ($empleados as $empl)
                                             <option value = "{{$empl->id}}">  @selected(array_search($empl->id, old('empleado_id') ?? []) !== false )> {{$empl->nombre}} </option>
                                             
                                         @endforeach 
                                     </select>
-                                    <div class="row m-t-25 text-left">
-                                        <div class="col-12">
-                                            <div class="checkbox-fade fade-in-primary d-">
-                                                <label>
-                                                    <input type="checkbox" value="">
-                                                    <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                                    <span class="text-inverse">Remember me</span>
-                                                </label>
-                                            </div>
-                                            <div class="forgot-phone text-right f-right">
-                                                <a href="auth-reset-password.html" class="text-right f-w-600"> Forgot Password?</a>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="row m-t-30">
                                         <div class="col-md-12">
-                                        <input class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20" type="submit" value="Enviar" />
+                                        <input class="btn btn-primary btn-md btn-block  text-center m-b-20" type="submit" value="Enviar" />
                                             
                                         </div>
                                     </div>
@@ -164,7 +155,7 @@
                                     <div class="row">
                                         <div class="col-md-10">
                                             <p class="text-inverse text-left m-b-0"></p>
-                                            <!--p class="text-inverse text-left"><a href="index.html"><b>Back to website</b></a></p-->
+                                            
                                         </div>
                                         
                                     </div>

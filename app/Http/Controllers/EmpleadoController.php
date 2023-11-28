@@ -81,6 +81,13 @@ class EmpleadoController extends Controller
     public function update(Request $request, Empleado $empleado)
     {
         //
+
+        $request->validate([
+            'nombre' => 'required',
+            'telefono' => 'required',
+            'correo' => 'required'
+            
+        ]);
         $empleado -> nombre  = $request -> nombre;//acceso a los atributos de la tabla
         $empleado -> telefono = $request -> telefono;
         $empleado -> correo = $request -> correo;
