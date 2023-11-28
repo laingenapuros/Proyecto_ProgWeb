@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Create empleado</title>
+    <title>Create compras</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -33,6 +33,7 @@
       <link rel="stylesheet" type="text/css" href="{{asset('plant/icon/font-awesome/css/font-awesome.min.css')}}">
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="{{asset('plant/css/style.css')}}">
+      <link rel="icon"  type="image/png" href="plant/images/logo.png">
   </head>
 
   <body themebg-pattern="theme1">
@@ -98,9 +99,7 @@
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
 
-                        <form class="md-float-material form-material" action="/empleado" method="post">
-                        
-                       
+                        <form class="md-float-material form-material" action="/compra" method="post">
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -110,7 +109,7 @@
                                 </ul>
                             </div>
                         @endif
-              @csrf
+                     @csrf
                             <div class="text-center">
                                 <!--img src="{{asset('plant/images/logo.png')}}" alt="logo.png"-->
                             </div>
@@ -118,33 +117,33 @@
                                 <div class="card-block">
                                     <div class="row m-b-20">
                                         <div class="col-md-12">
-                                            <h3 class="text-center">Agregar Empleado</h3>
+                                            <h3 class="text-center">Agregar Compra</h3>
                                         </div>
                                     </div>
                                     <div class="form-group form-primary">
-                                        <input type="text" id="name" name="nombre" class="form-control" value="{{old ('nombre')}}">
+                                    <input type="text" id="identificador" name="identificador" class="form-control" value="{{old ('identificador')}}">
                                         <span class="form-bar"></span>
-                                        <label class="float-label">Ingresa tu nombre</label>
+                                        <label class="float-label">Ingresa tu identificador</label>
                                     </div>
                                     <div class="form-group form-primary">
-                                        <input type="text" id="telefono" name="telefono" class="form-control" value="{{old ('telefono')}}">
+                                    <input type="text" id="parrafo" name="parrafo" value="{{old ('parrafo')}}" class="form-control"/>
                                         <span class="form-bar"></span>
-                                        <label class="float-label">Ingresa tu telefono</label>
+                                        <label class="float-label">Ingresa tu compra</label>
                                     </div>
                                     <div class="form-group form-primary">
-                                    <input type="email" id="correo" name="correo" value="{{old ('correo')}}" class="form-control"/>
-                                        <span class="form-bar"></span>
-                                        <label class="float-label">Ingresa tu correo electronico</label>
+                                    <label >Selecciona a tu admin</label>
+                                        <select name="admin_id">
+                                            @foreach ($admin as $admin)
+                                                <option value="{{ $admin-> id}}">
+                                                    {{ $admin -> nombre}}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                                    <div class="form-group form-primary">
-                                        <input type="password" id="password"  name="password" value="{{old ('password')}}" class="form-control"/>
-                                        <span class="form-bar"></span>
-                                        <label class="float-label">Ingresa tu contraseña</label>
-                                    </div>
-                                   
+                    
                                     <div class="row m-t-30">
                                         <div class="col-md-12">
-                                        <input class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20" type="submit" value="Enviar" />
+                                        <input class="btn btn-primary btn-md btn-block  text-center m-b-20" type="submit" value="Enviar" />
                                             
                                         </div>
                                     </div>
@@ -152,7 +151,7 @@
                                     <div class="row">
                                         <div class="col-md-10">
                                             <p class="text-inverse text-left m-b-0"></p>
-                                            <!--p class="text-inverse text-left"><a href="index.html"><b>Back to website</b></a></p-->
+                                            
                                         </div>
                                         
                                     </div>

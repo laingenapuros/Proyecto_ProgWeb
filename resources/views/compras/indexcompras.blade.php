@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Index Admin</title>
+    <title>Index Compras</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -96,7 +96,12 @@
                                     </li>
                                     
                                     <li class="waves-effect waves-light">
-                                        <a href="auth-normal-sign-in.html">
+                                        <a href="/admin">
+                                            <i class="ti-layout-sidebar-left"></i> Regresar
+                                        </a>
+                                    </li>
+                                    <li class="waves-effect waves-light">
+                                        <a href="/">
                                             <i class="ti-layout-sidebar-left"></i> Salir
                                         </a>
                                     </li>
@@ -128,25 +133,31 @@
                         @endauth
                     
                         <div class="col-md-12">
-                            <h3 class="text-center">Lista de administradores </h3>
+                            <h3 class="text-center">Lista de Compras </h3>
                             
-                            <a href="user-profile.html">
-                            @foreach ($admin as $admin)
-                             <h2 class="text-center">  <img  width="30" height="30" src="{{asset('plant/images/usuario.png')}}" /> <a href="{{route('admin.show', $admin)}}"> {{$admin -> nombre}} </a>  </h2>
-                             <div class="contenedor-botones">
-    <a href="{{ route('admin.edit', $admin) }}" class="btn btn-outline-info">Editar</a>
-
-    <form action="{{ route('admin.destroy', $admin) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-outline-danger">Eliminar</button>
-    </form>
+                            
+                            <table class ="table" border = "1">
+                            <thead>
+                                <tr>
+                                    <th> ID </th>
+                                    <th> Identificador </th>
+                                    <th> Parrafo </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($comp as $compras)
+                                    <tr>
+                                        <td>{{ $compras ->admin->id}}</td>
+                                        <td>{{ $compras ->identificador}}</td>
+                                        <td>{{ $compras->parrafo}}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                             
 </div>
-                    
-        <!--<li> {{$admin ->nombre}} </li> 
-        <li> {{$admin ->correo}} </li>
-        <li> {{$admin ->password}} </li>-->
-        @endforeach
+            
+
     </ul>
                     </div>
                 </div>
