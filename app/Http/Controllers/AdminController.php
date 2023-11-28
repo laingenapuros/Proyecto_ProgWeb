@@ -53,9 +53,18 @@ class AdminController extends Controller
             'nombre' => 'required',
             'correo' => 'required',
             'password' => 'required',
-            'empleado_id' => 'required'
+            "archivo"=>'required|max:1000'
         ]);
-        $request->merge(['user_id'=>Auth::id()]);
+
+        if(!$request->file('archivo')->isValid()){
+            //$request->file('archivo')->store('imgs');
+        }
+
+        $request->merge(['user_id'=>Auth::id(), 
+            'archivo_nombre' => $request->file('archivo')->getClientOriginalName(), 
+            'archivo_ubicacion' => $request->file('archivo')->store('public/imgs'),
+        ]);
+
         #Admin::create($request -> all());
         $admin = Admin::create($request -> all());
         $admin->empleados()->attach($request->empleado_id);
@@ -124,5 +133,9 @@ class AdminController extends Controller
         //
         $admin->delete();
         return redirect()->route('admin.index');
+    }
+
+    public function descargar(Admin $admin){
+        return Storage::download($admin->archivo_ubicacion, $admin->archivo_nombre);
     }
 }

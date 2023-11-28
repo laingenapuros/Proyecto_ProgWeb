@@ -47,6 +47,9 @@ Route::resource('requerimiento', RequerimientoController::class)->middleware('au
 //Route::resource('Proveedor', ProveedorController::class); //agregar controladores metodos todos show, delete, etc 
 
 
+
+Route::get('admin-descarga/{admin}', [AdminController::class, 'descargar'])->name('admin.descarga'); //agregar controladores 
+
 Route::resource('empleado', empleadoController::class); //agregar controladores 
 Route::resource('admin', adminController::class); //agregar controladores 
 Route::resource('Producto', ProductoController::class); //agregar controladores 

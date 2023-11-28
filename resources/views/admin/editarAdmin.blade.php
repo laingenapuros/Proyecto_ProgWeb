@@ -138,13 +138,15 @@
                                         <label >Ingresa tu nueva  contraseña</label>
                                         
                                     </div>
-
+                                    <div class="form-group form-primary">
+                                    <label >Selecciona a tu empleado</label>
                                     <select name = "empleado_id[]" multiple>
                                           @foreach ($empleados as $empl)
                                             <option value = "{{$empl->id}}">  @selected(array_search($empl->id, old('empleado_id') ?? []) !== false )> {{$empl->nombre}} </option>
                                             
                                         @endforeach 
                                     </select>
+    
                                     
                                     <div class="row m-t-30">
                                         <div class="col-md-12">

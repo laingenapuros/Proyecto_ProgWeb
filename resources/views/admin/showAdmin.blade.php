@@ -156,6 +156,13 @@
                                 </li>
                             @endforeach
                         </ul>
+                        @auth
+                        <h3>Archivos del administrador {{Auth::user()->name}} </h3>
+                        @endauth
+                        <div class="contenedor-botones">
+                            <img width="90" height="90" src="{{ \Storage::url ($admin->archivo_ubicacion)}}" alt=""></h3>
+                        <h4>  &nbsp;  &nbsp; <img  width="30" height="30" src="{{asset('plant/images/descargable.png')}}" /><a href="{{route('admin.descarga', $admin)}}">  &nbsp; {{$admin -> archivo_nombre}}</a> </h4>
+</div>
 </div>
                              
 </div>
