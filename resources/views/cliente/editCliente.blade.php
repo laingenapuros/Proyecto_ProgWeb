@@ -17,8 +17,7 @@
       <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
       <meta name="author" content="Codedthemes" />
       <!-- Favicon icon -->
-
-      <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="{{asset('plant/images/logo.png')}}" type="image/png">
       <!-- Google font-->
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
       <!-- Required Fremwork -->
@@ -151,28 +150,13 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group form-primary">
+                                    <!--<div class="form-group form-primary">
                                         <input type="file" id="archivo"  name="archivo" value="{{old ('producto_men')}}" class="form-control"/>
                                         <span class="form-bar"></span>
                                         <label for = "archivo">Cambia el archivo</label>
-                                    </div>
+                                    </div>-->
                                     
 
-
-                                    <div class="row m-t-25 text-left">
-                                        <div class="col-12">
-                                            <div class="checkbox-fade fade-in-primary d-">
-                                                <label>
-                                                    <input type="checkbox" value="">
-                                                    <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                                    <span class="text-inverse">Remember me</span>
-                                                </label>
-                                            </div>
-                                            <div class="forgot-phone text-right f-right">
-                                                <a href="auth-reset-password.html" class="text-right f-w-600"> Forgot Password?</a>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="row m-t-30">
                                         <div class="col-md-12">
                                         <input class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20" type="submit" value="Enviar" />

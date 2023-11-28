@@ -17,8 +17,6 @@
       <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
       <meta name="author" content="Codedthemes" />
       <!-- Favicon icon -->
-
-      <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
       <!-- Google font-->
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
       <!-- Required Fremwork -->
@@ -33,6 +31,7 @@
       <link rel="stylesheet" type="text/css" href="{{asset('plant/icon/font-awesome/css/font-awesome.min.css')}}">
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="{{asset('plant/css/style.css')}}">
+      <link rel="icon"  type="image/png" href="plant/images/logo.png">
   </head>
 
   <body themebg-pattern="theme1">
@@ -99,16 +98,16 @@
                     <!-- Authentication card start -->
 
                         <form class="md-float-material form-material" action="/cliente" method="post" enctype = "multipart/form-data">
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                        @csrf
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            @csrf
                             <div class="text-center">
                                 <!--img src="{{asset('plant/images/logo.png')}}" alt="logo.png"-->
                             </div>
@@ -141,7 +140,7 @@
                                     </div>
 
                                     <div class="form-group form-primary">
-                                    <label>Pedidos</label>
+                                        <label>Selecciona tus pedidos</label><br>
                                         <select name = "producto_id[]" multiple>
                                             @foreach ($prods as $prod)
                                                 <option value = "{{$prod->id}}" @selected(array_search($prod->id, old('producto_id') ?? []) !== false )> 
@@ -152,26 +151,12 @@
                                     </div>
 
                                     <div class="form-group form-primary">
+                                        <label for = "archivo">Sube algún archivo</label><br>
                                         <input type="file" id="archivo"  name="archivo" value="{{old ('producto_men')}}" class="form-control"/>
                                         <span class="form-bar"></span>
-                                        <label for = "archivo">Sube algún archivo</label>
+                                        
                                     </div>
 
-
-                                    <div class="row m-t-25 text-left">
-                                        <div class="col-12">
-                                            <div class="checkbox-fade fade-in-primary d-">
-                                                <label>
-                                                    <input type="checkbox" value="">
-                                                    <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                                    <span class="text-inverse">Remember me</span>
-                                                </label>
-                                            </div>
-                                            <div class="forgot-phone text-right f-right">
-                                                <a href="auth-reset-password.html" class="text-right f-w-600"> Forgot Password?</a>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="row m-t-30">
                                         <div class="col-md-12">
                                         <input class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20" type="submit" value="Enviar" />
