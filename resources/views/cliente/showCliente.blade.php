@@ -122,14 +122,14 @@
                         <h3 class = "text-center">Requerimientos:</h3>
                         <ul class = "text-center">
                             @foreach ($cliente -> requerimientos as $req)
-                                <li> {{ $req ->identificador}} </li>
+                                <li><a href="{{route('requerimiento.index')}}"> {{ $req ->identificador}} </a></li>
                             @endforeach
                         </ul>
 
                         <h3 class = "text-center">Pedidos:</h3>
                         <ul class = "text-center">
                             @foreach ($cliente -> productos as $prod)
-                                <li>{{ $prod -> nombre}}</li>
+                                <li><a href="{{route('producto.show', $prod)}}"> {{ $prod -> nombre}} </a></li>
                             @endforeach
                         </ul>
 

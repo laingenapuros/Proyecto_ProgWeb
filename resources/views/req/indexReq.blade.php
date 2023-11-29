@@ -119,28 +119,33 @@
                         <!-- Page-header end -->
                         <!--AQUÍ IBA LO RECORTADO-->
 
-                        <h1 class = "text-center">Tabla de requerimientos</h1>
+                    <h1 class = "text-center">Tabla de requerimientos</h1>
 
-                        <table class = "center" border = "1">
-                            <thead class = "text-center">
+                    <table class = "center" border = "1">
+                        <thead class = "text-center">
+                            <tr>
+                                <th> ID </th>
+                                <th> Identificador </th>
+                                <th> Parrafo </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($reqs as $requerimiento)
                                 <tr>
-                                    <th> ID </th>
-                                    <th> Identificador </th>
-                                    <th> Parrafo </th>
+                                    <td>{{ $requerimiento ->cliente->id}}</td>
+                                    <td>{{ $requerimiento ->identificador}}</td>
+                                    <td>{{ $requerimiento ->parrafo}}</td>
+                                    <td><form action="{{route('requerimiento.destroy', $requerimiento)}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-outline-danger" >Eliminar</button>
+                                        </form>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($reqs as $requerimiento)
-                                    <tr>
-                                        <td>{{ $requerimiento ->cliente->id}}</td>
-                                        <td>{{ $requerimiento ->identificador}}</td>
-                                        <td>{{ $requerimiento ->parrafo}}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        
-                    </div>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    
                 </div>
             </div>
         </div>

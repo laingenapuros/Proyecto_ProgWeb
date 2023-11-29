@@ -127,7 +127,7 @@
                                     <form action="{{route('cliente.destroy', $clien)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                    <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                                        <button type="submit" class="btn btn-outline-danger" >Eliminar</button>
                                     </form>
                                 </div>
                             @endforeach

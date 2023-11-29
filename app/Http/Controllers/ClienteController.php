@@ -162,12 +162,12 @@ class ClienteController extends Controller
     public function destroy(Request $request, Cliente $cliente)
     {
         //
-        //$cliente->requerimientos()->delete(); //1 a muchos
+        $cliente->requerimientos()->delete(); //1 a muchos
         //$cliente->requerimientos()->detach(); //muchos a muchos
 
-        /**if($request->user()->cannot('delete', $cliente)){
+        if($request->user()->cannot('delete', $cliente)){
             abort(403);
-        }**/
+        }
         $cliente->delete();
         return redirect()->route('cliente.index');
     }
