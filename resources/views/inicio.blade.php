@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+W<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -32,7 +32,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&family=Roboto+Slab:wght@100;200;400&display=swap" rel="stylesheet">
-    <link rel="icon"  type="image/png" href="plant/images/logo.png">
+    <link rel="icon" type="image/png" href="{{ asset('public/plant/images/logo.png') }}">
 </head>
 
 <body>
@@ -79,22 +79,7 @@
                                 </a>
 
                                 <ul class="show-notification profile-notification">
-                                <li class="waves-effect waves-light">
-                                <a href="/empleado/create">
-                                            <i class="ti-user"></i> Agregar Empleado
-                                        </a>
-                                    </li>
-                                <li class="waves-effect waves-light">
-                                        <a href="/admin/create">
-                                            <i class="ti-user"></i> Agregar Admin
-                                        </a>
-                                    </li>
-                                    <li class="waves-effect waves-light">
-                                        <a href="/inicio">
-                                            <i class="ti-layout-sidebar-left"></i> Regresar
-                                        </a>
-                                    </li>
-                                    
+                                
                                     <li class="waves-effect waves-light">
                                     @auth
                                      <a href="{{route('logout')}}">
@@ -125,31 +110,37 @@
                         </div>
                         <!-- Page-header end -->
                         <!--AQUÍ IBA LO RECORTADO-->
-                        @auth
-                        <h1 class="text-center" > Bienvenido administrador  {{Auth::user()->name}}</h1>
-                        @endauth
-                    
                         <div class="col-md-12">
-                            <h3 class="text-center">Lista de administradores </h3>
-                            
-                            <a href="user-profile.html">
-                            @foreach ($admin as $admin)
-                             <h2 class="text-center">  <img  width="30" height="30" src="{{asset('plant/images/usuario.png')}}" /> <a href="{{route('admin.show', $admin)}}"> {{$admin -> nombre}} </a>  </h2>
-                             <div class="contenedor-botones">
-    <a href="{{ route('admin.edit', $admin) }}" class="btn btn-outline-info">Editar</a>
+                            <h3 class="text-center"> INICIO</h3>
 
-    <form action="{{ route('admin.destroy', $admin) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-outline-danger">Eliminar</button>
-    </form>
-</div>
-                    
-        <!--<li> {{$admin ->nombre}} </li> 
-        <li> {{$admin ->correo}} </li>
-        <li> {{$admin ->password}} </li>-->
-        @endforeach
-    </ul>
+                        <ul>
+                            
+                            @auth
+                                <h2 class="text-center">¿Qué desea hacer?</h2>
+                                <ul>
+                                    <li>
+                                    <h2 class="text-center">  <img  width="30" height="30" src="{{asset('plant/images/usuario.png')}}" /> <a href="{{route('admin.index')}}"> ADMINS </a>
+                                    </li>
+                                    <li>
+                                    <h2 class="text-center">  <img  width="30" height="30" src="{{asset('plant/images/usuario.png')}}" />   <a href="{{route('empleado.index')}}">EMPLEADOS </a>
+                                    </li>
+                                    <li>
+                                    <h2 class="text-center">  <img  width="30" height="30" src="{{asset('plant/images/shop.png')}}" />   <a href="{{route('compra.index')}}">COMPRAS </a>
+                                    </li>
+                                    
+                                </ul>
+                                
+                                @else
+                                <li>
+                                <link rel="icon"  type="image/png" href="publicc/plant/images/logo.png">
+                                <h2 class="text-center">  <img  width="30" height="30" src="{{asset('plant/images/usuario.png')}}" /> <a href="{{route('login')}}">LOG IN </a>
+                                </li>
+
+                            @endauth
+                        </ul>
+
+                     
+
                     </div>
                 </div>
             </div>

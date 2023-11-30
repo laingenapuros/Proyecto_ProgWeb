@@ -18,7 +18,7 @@ class EmpleadoFactory extends Factory
     {
         return [
             'nombre' => fake()->name(),
-            'telefono' => $this-> faker->randomNumber(10, false),
+            'telefono' => fake()->phoneNumber(),
             'correo' => $this->faker->email(),
             'password' => fake()->sentence()
         ];

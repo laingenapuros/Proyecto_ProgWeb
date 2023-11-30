@@ -141,15 +141,15 @@
                                     
                                           @foreach ($empleados as $empl)
                                             <option value = "{{$empl->id}}">  @selected(array_search($empl->id, old('empleado_id') ?? []) !== false )> {{$empl->nombre}} </option>
-                                            
-                                        @endforeach 
+                                            @endforeach
+                                        
                                     </select>
                                     </div>
                                     <div class="form-group form-primary">
                                     <label for = "archivo"> Sube algún archivo </label>
                                         <input type="file" id="archivo"  name="archivo" value="{{old ('empleado_id')}}" class="form-control"/>
                                         <span class="form-bar"></span>
-                                        
+                                         
                                     </div>
                                     <div class="row m-t-30">
                                         <div class="col-md-12">

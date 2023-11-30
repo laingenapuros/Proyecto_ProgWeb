@@ -19,14 +19,17 @@ use App\Http\Controllers\ComprasController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/plantilla', function () {
     return view('plantilla');
 });
 
-Route::get('/home', function () {
+/*Route::get('/home', function () {
     return view('home');
-});
+});*/
 
 
 //forma 2
@@ -63,7 +66,7 @@ Route::get('/logout', function(){
     auth()->logout();
     Session()->flush();
 
-    return view('dashboardA');
+    return view('inicio');
 })->name('logout');
 
 
@@ -72,7 +75,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/inicio', function () {
+        return view('inicio');
+    })->name('inicio');
 });

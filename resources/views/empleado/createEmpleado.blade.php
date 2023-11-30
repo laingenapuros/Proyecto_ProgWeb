@@ -33,6 +33,7 @@
       <link rel="stylesheet" type="text/css" href="{{asset('plant/icon/font-awesome/css/font-awesome.min.css')}}">
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="{{asset('plant/css/style.css')}}">
+      <link rel="icon"  type="image/png" href="publicc/plant/images/logo.png">
   </head>
 
   <body themebg-pattern="theme1">

@@ -53,7 +53,7 @@ class AdminController extends Controller
             'nombre' => 'required',
             'correo' => 'required',
             'password' => 'required',
-            "archivo"=>'required|max:1000'
+            'archivo'=>'required|max:1000'
         ]);
 
         if(!$request->file('archivo')->isValid()){
@@ -131,6 +131,11 @@ class AdminController extends Controller
     public function destroy(Request $request, Admin $admin)
     {
         //
+        $admin->compras()->delete();
+
+       // $admin -> compras() ->detach(); 
+
+        
         $admin->delete();
         return redirect()->route('admin.index');
     }
