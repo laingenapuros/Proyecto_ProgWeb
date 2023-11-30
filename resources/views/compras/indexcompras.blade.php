@@ -96,16 +96,19 @@
                                     </li>
                                     
                                     <li class="waves-effect waves-light">
+
                                         <a href="/inicio">
                                             <i class="ti-layout-sidebar-left"></i> Regresar
                                         </a>
                                     </li>
                                     <li class="waves-effect waves-light">
+
                                     @auth
                                      <a href="{{route('logout')}}">
                                             <i class="ti-layout-sidebar-left"></i> Salir
                                         </a>
                                         @endauth
+
                                     </li>
                                     
                                 

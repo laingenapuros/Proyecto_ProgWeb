@@ -33,7 +33,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&family=Roboto+Slab:wght@100;200;400&display=swap" rel="stylesheet">
-    <link rel="icon"  type="image/png" href="/plant/images/logo.png">
+
+    <link rel="icon"  type="image/png" href="plant/images/logo.png">
 </head>
 
 <body>
@@ -90,6 +91,7 @@
                                             <i class="ti-settings"></i> Agregar Compra
                                         </a>
                                     </li>
+<<<<<<< HEAD
                                     <li class="waves-effect waves-light">
                                         <a href="/inicio">
                                             <i class="ti-layout-sidebar-left"></i> Regresar
@@ -101,6 +103,13 @@
                                             <i class="ti-layout-sidebar-left"></i> Salir
                                         </a>
                                         @endauth
+=======
+                                    
+                                    <li class="waves-effect waves-light">
+                                        <a href="auth-normal-sign-in.html">
+                                            <i class="ti-layout-sidebar-left"></i> Salir
+                                        </a>
+>>>>>>> b54f8bbfcf5740ed700706eabb34180497f1d841
                                     </li>
                                     
                                 

@@ -54,6 +54,7 @@ class AdminController extends Controller
             'correo' => 'required',
             'password' => 'required',
             'archivo'=>'required|max:1000'
+
         ]);
 
         if(!$request->file('archivo')->isValid()){
@@ -132,10 +133,9 @@ class AdminController extends Controller
     {
         //
         $admin->compras()->delete();
-
        // $admin -> compras() ->detach(); 
 
-        
+
         $admin->delete();
         return redirect()->route('admin.index');
     }

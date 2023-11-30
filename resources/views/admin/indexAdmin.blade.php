@@ -89,18 +89,26 @@
                                             <i class="ti-user"></i> Agregar Admin
                                         </a>
                                     </li>
-                                    <li class="waves-effect waves-light">
-                                        <a href="/inicio">
-                                            <i class="ti-layout-sidebar-left"></i> Regresar
-                                        </a>
-                                    </li>
                                     
                                     <li class="waves-effect waves-light">
+                                    <a href="/compra/create">
+                                            <i class="ti-settings"></i> Agregar Compra
+
+                                        </a>
+                                    </li>
+                                    <li class="waves-effect waves-light">
+
+                                        <a href="/inicio">
+                                            <i class="ti-layout-sidebar-left"></i> Regresar
+                                            </a>
+                                    </li>
+                            
                                     @auth
                                      <a href="{{route('logout')}}">
                                             <i class="ti-layout-sidebar-left"></i> Salir
                                         </a>
                                         @endauth
+
                                     </li>
                                     
                                 

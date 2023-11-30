@@ -32,7 +32,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&family=Roboto+Slab:wght@100;200;400&display=swap" rel="stylesheet">
+<<<<<<< HEAD
     c
+=======
+    <link rel="icon"  type="image/png" href="plant/images/logo.png">
+>>>>>>> b54f8bbfcf5740ed700706eabb34180497f1d841
 </head>
 
 <body>
@@ -101,11 +105,17 @@
                                         </a>
                                     </li>
                                     <li class="waves-effect waves-light">
+<<<<<<< HEAD
                                     @auth
                                      <a href="{{route('logout')}}">
                                             <i class="ti-layout-sidebar-left"></i> Salir
                                         </a>
                                         @endauth
+=======
+                                        <a href="/">
+                                            <i class="ti-layout-sidebar-left"></i> Salir
+                                        </a>
+>>>>>>> b54f8bbfcf5740ed700706eabb34180497f1d841
                                     </li>
                                     
                                 
