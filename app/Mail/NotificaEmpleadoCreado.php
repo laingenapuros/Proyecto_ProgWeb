@@ -28,7 +28,7 @@ class NotificaEmpleadoCreado extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Notifica Empleado Creado',
+            subject: 'Notifica Admin Creado',
         );
     }
 

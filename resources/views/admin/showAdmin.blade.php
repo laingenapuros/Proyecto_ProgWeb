@@ -100,19 +100,14 @@
                                             <i class="ti-layout-sidebar-left"></i> Regresar
                                         </a>
                                     </li>
-<<<<<<< HEAD
+
                                     @auth
                                     <li class="waves-effect waves-light">
                                      <a href="{{route('logout')}}">
                                             <i class="ti-layout-sidebar-left"></i> Salir
                                     </a>
                                         @endauth
-=======
-                                    <li class="waves-effect waves-light">
-                                        <a href="/">
-                                            <i class="ti-layout-sidebar-left"></i> Salir
-                                        </a>
->>>>>>> b54f8bbfcf5740ed700706eabb34180497f1d841
+
                                     </li>
                                     
                                 

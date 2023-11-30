@@ -91,7 +91,7 @@
                                             <i class="ti-settings"></i> Agregar Compra
                                         </a>
                                     </li>
-<<<<<<< HEAD
+
                                     <li class="waves-effect waves-light">
                                         <a href="/inicio">
                                             <i class="ti-layout-sidebar-left"></i> Regresar
@@ -103,13 +103,7 @@
                                             <i class="ti-layout-sidebar-left"></i> Salir
                                         </a>
                                         @endauth
-=======
-                                    
-                                    <li class="waves-effect waves-light">
-                                        <a href="auth-normal-sign-in.html">
-                                            <i class="ti-layout-sidebar-left"></i> Salir
-                                        </a>
->>>>>>> b54f8bbfcf5740ed700706eabb34180497f1d841
+
                                     </li>
                                     
                                 

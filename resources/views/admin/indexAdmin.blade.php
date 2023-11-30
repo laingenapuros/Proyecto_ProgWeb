@@ -104,6 +104,7 @@
                                     </li>
                             
                                     @auth
+                                    <li class="waves-effect waves-light">
                                      <a href="{{route('logout')}}">
                                             <i class="ti-layout-sidebar-left"></i> Salir
                                         </a>

@@ -34,11 +34,9 @@
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="{{asset('plant/css/style.css')}}">
     
-<<<<<<< HEAD
-      <link rel="icon" type="image/png" href="{{ asset('public/plant/images/logo.png') }}">
-=======
+
       <link rel="icon"  type="image/png" href="publicc/plant/images/logo.png">
->>>>>>> b54f8bbfcf5740ed700706eabb34180497f1d841
+
     
   </head>
 
