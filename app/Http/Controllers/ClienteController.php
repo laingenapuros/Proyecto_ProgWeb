@@ -94,7 +94,7 @@ class ClienteController extends Controller
 
 
 
-       //Mail::to($request->user())->send(new NotificaClienteCreado($cliente));
+       Mail::to($request->user())->send(new NotificaClienteCreado($cliente));
 
         return redirect()->route('cliente.index');
     }
